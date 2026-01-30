@@ -7,12 +7,12 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
 
-        {% extra_meta %}
+        {% block extra_meta %}
         {% endblock %}
 
-        <title>Motion Lab {% extra_title %}{% endblock %}</title>
+        <title>Motion Lab {% block extra_title %}{% endblock %}</title>
 
-        {% block corecss}
+        {% block corecss %}
             <!-- BootStrap CSS link -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
                 rel="stylesheet"
@@ -36,7 +36,7 @@
             </script>
         {% endblock %}
 
-        {% extra_js %}
+        {% block extra_js %}
         {% endblock %}
     </head>
     <body class="d-flex flex-column h-100">
