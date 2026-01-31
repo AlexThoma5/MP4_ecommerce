@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('testing home view')
+    """ A view to return the index page """
+    return render(request, 'home/index.html')
