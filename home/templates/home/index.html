@@ -1,6 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-    <h1 class="display-4 text-success">Test index page</h1>
+    <!-- Header-->
+    <header class="p-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Text column -->
+                <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-start">
+                    <h1 class="mb-3"><span class="d-block display-4 fw-semibold">Move Better,</span>
+                        <span class="d-block display-4 fw-semibold">Live Better</span></h1>
+                    <p class="text-muted mb-4">Expert physiotherapy care tailored to your recovery journey. Get back to doing what you love with personalised treatment plans.</p>
+                    <a href="" class="btn btn-dark btn-lg">View Services</a>
+                </div>
+                <!-- Image column -->
+                <div class="col-12 col-lg-6 text-center">
+                    <!-- Temporary image holder -->
+                    <div class="bg-dark d-flex align-items-center justify-content-center" style="height: 300px;">
+                    <span class="text-light">Physiotherapy Session Image</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 {% endblock %}
