@@ -21,7 +21,7 @@
                     </p>
                     <p class="fw-semibold mb-2">£{{ service.price }}</p>
                     <div class="mt-auto align-self-end">
-                        <a href=""
+                        <a href="{% url 'service_detail' service.id %}"
                             class="btn btn-primary btn-sm stretched-link">
                             Continue
                         </a>
