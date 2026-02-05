@@ -24,7 +24,7 @@ class Service(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     class Meta:
-        ordering = ['service_type']
+        ordering = ['service_type', 'name']
 
     def __str__(self):
         return self.name
