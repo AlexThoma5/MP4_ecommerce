@@ -2,11 +2,75 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <!-- Page title -->
-    <div class="text-center m-4">
-        <h1 class="display-5">{{ service.name }}</h1>
-        <p class="text-muted">something about our services...</p>
+<div class="container my-3">
+
+    <!-- Page header -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-semibold">{{ service.name }}</h1>
     </div>
+
+    <form method="post" action="">
+    {% csrf_token %}
+
+        <!-- Hidden input for redirect url -->
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+        <div class="row g-4">
+            <!-- Description box -->
+            <div class="col-12 col-md-8 order-2 order-md-1">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">About this service</h4>
+                        <p class="card-text">
+                            {{ service.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service detail box and desktop buttons -->
+            <div class="col-12 col-md-4 order-1 order-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Service details</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Duration:</strong> {{ service.duration }} mins</li>
+                            <li><strong>Price:</strong> £{{ service.price }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Desktop buttons -->
+                <div class="row g-2 d-none d-md-flex mt-3">
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <a href="{% url 'services' %}" class="btn btn-outline-secondary btn-lg w-100">
+                            Back
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-12 col-lg-6">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile buttons for small screens -->
+            <div class="col-12 order-3 d-md-none">
+                <div class="row g-2">
+                    <div class="col-6">
+                        <a href="{% url 'services' %}" class="btn btn-outline-secondary btn-lg w-100">
+                            Back
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 </div>
 {% endblock %}
