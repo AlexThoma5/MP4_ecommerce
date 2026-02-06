@@ -1,31 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-<div class="container my-3">
-
-    <div class="mb-5">
-        <h2 class="display-5">Shopping bag</h2>
-        <hr>
-    </div>
-
-    <div class="row">
-        <div class="col">
+    <div class="container my-3">
+        <div class="row g-4">
+            <!-- Shopping bag section -->
             {% if bag_items %}
-            <div class="table-responsive rounded"></div>
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h4 class="mb-0">Your Shopping Bag</h4>
+                        <span class="text-muted">{{ service_count }} item{% if service_count > 1 %}s{% endif %}
+                        </span>
+                    </div>
+                    <hr>
+                    {% for item in bag_items %}
+                        <!-- Service Cards -->
+                        <div class="card p-3 shadow-sm mt-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 d-none d-md-block order-0">
+                                    <img src="" alt="service-image" class="service-image">
+                                </div>
+                                <div class="col-8 col-md-4 order-1">
+                                    <h6 class="mb-1">{{ item.service.name }}</h6>
+                                    <p class="text-muted mb-0">{{ item.service.duration }} mins</p>
+                                </div>
+                                <div class="col-4 col-md-2 order-2 order-md-3 text-end text-md-start align-self-start align-self-md-center">
+                                    <span class="fw-semibold">£{{ item.service.price }}</span>
+                                </div>
+                                <div class="col-8 col-md-3 order-3 order-md-2">
+                                    <p class="text-muted mb-0">
+                                        {{ item.service.session_count }} session{% if item.service.session_count > 1 %}s{% endif %}
+                                    </p>
+                                </div>
+                                <div class="col-4 col-md-1 order-4 order-md-4 text-end text-md-start">
+                                    <i class="fa-solid fa-trash-can remove-btn text-danger mt-md-0"></i>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             {% else %}
-            <p class="lead mb-5 text-center">Your bag is empty.</p>
-            <div class="text-center">
-                <a href="{% url 'services' %}" class="btn btn-outline-primary btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span>Browse Services</span>
-                </a>
-            </div>
+                <!-- Empty bag column -->
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h4 class="mb-0">Your Shopping Bag</h4>
+                        <span class="text-muted">No items</span>
+                    </div>
+                    <hr>
+                    <div class="card p-4 shadow-sm">
+                        <p class="lead my-4 text-center">Your bag is empty.</p>
+                        <div class="text-center my-4">
+                            <a href="{% url 'services' %}" class="btn btn-outline-primary btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span>Browse Services</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>
-
-</div>
 {% endblock %}
