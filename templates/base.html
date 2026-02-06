@@ -4,6 +4,8 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'services' as services_url %}
+{% url 'view_bag' as bag_url %}
+
 <!DOCTYPE html>
 <html class="h-100" lang="en">
     <head>
@@ -74,11 +76,13 @@
                             <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
                             href="{% url 'account_signup' %}">Sign Up</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'account_login' %}">Login</a>
-                        </li>
                         {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == bag_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'view_bag' %}">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
