@@ -9,7 +9,7 @@
         <h1 class="display-5 fw-semibold">{{ service.name }}</h1>
     </div>
 
-    <form method="post" action="">
+    <form method="post" action="{% url 'add_to_bag' service.id %}">
     {% csrf_token %}
 
         <!-- Hidden input for redirect url -->
