@@ -32,7 +32,12 @@
                                     </p>
                                 </div>
                                 <div class="col-4 col-md-1 order-4 order-md-4 text-end text-md-start">
-                                    <i class="fa-solid fa-trash-can remove-btn text-danger mt-md-0"></i>
+                                    <form method="post" action="{% url 'remove_from_bag' item.item_id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn p-0 text-danger" aria-label="Remove item">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
