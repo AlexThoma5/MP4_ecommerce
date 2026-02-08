@@ -53,7 +53,8 @@ def service_detail(request, service_id):
     ``service``
         An instance of :model:`services.Service`.
     ``on_service_detail_page``
-        An instance of :model:`services.Service`.
+        Boolean flag indicating the service detail page is being rendered.
+        Used to provide context to toasts.
 
     **Template:**
 
