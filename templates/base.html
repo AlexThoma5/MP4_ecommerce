@@ -5,7 +5,6 @@
 {% url 'account_logout' as logout_url %}
 {% url 'services' as services_url %}
 {% url 'view_bag' as bag_url %}
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
     <head>
@@ -13,42 +12,32 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
-
-        {% block extra_meta %}
-        {% endblock %}
-
-        <title>Motion Lab {% block extra_title %}{% endblock %}</title>
-
+        {% block extra_meta %}{% endblock %}
+        <title>Motion Lab{% block extra_title %}{% endblock %}
+        </title>
         {% block corecss %}
             <!-- BootStrap CSS link -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-                rel="stylesheet"
-                integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-                crossorigin="anonymous">
+                  rel="stylesheet"
+                  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+                  crossorigin="anonymous">
         {% endblock %}
-
         {% block extra_css %}
         {% endblock %}
-
         {% block corejs %}
             <!-- Font Awesome Kit -->
-            <script src="https://kit.fontawesome.com/e1ecb81146.js"
-                    crossorigin="anonymous"
-                    defer>
-            </script>
+            <script src="https://kit.fontawesome.com/e1ecb81146.js" crossorigin="anonymous" defer></script>
             <!-- BootStrap JS -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
-                crossorigin="anonymous" defer>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer>
             </script>
+            <script src="{% static 'js/base.js' %}" defer></script>
         {% endblock %}
-
-        {% block extra_js %}
-        {% endblock %}
+        {% block extra_js %}{% endblock %}
     </head>
     <body class="d-flex flex-column h-100">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-custom fixed-top bg-body-tertiary" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top bg-body-tertiary"
+             data-bs-theme="dark">
             <div class="container px-5">
                 <a class="navbar-brand" href="{% url 'home' %}">Motion Lab</a>
                 <button class="navbar-toggler"
@@ -64,29 +53,39 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == services_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'services' %}">Services</a>
+                               href="{% url 'services' %}">Services</a>
                         </li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'account_logout' %}">Logout</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
+                                   href="{% url 'account_logout' %}">Logout</a>
+                            </li>
                         {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'account_signup' %}">Sign Up</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
+                                   href="{% url 'account_signup' %}">Sign Up</a>
+                            </li>
                         {% endif %}
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == bag_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'view_bag' %}">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                               href="{% url 'view_bag' %}">
+                                <div>
+                                    <i class="fas fa-shopping-bag fa-lg"></i>
+                                </div>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- messages -->
+        {% if messages %}
+            <div class="toast-container position-fixed top-0 end-0 mt-4 p-3">
+                {% for message in messages %}
+                    {% include 'includes/toasts/toasts.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
         <!-- Page Content -->
         <main class="flex-grow-1 mt-5 py-4">
             {% block content %}

@@ -1,0 +1,30 @@
+  <div class="toast text-bg-secondary" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header text-bg-{{message.tags}} {% if 'error' in message.tags %}text-bg-danger{% endif %}">
+      {% if "success" in message.tags %}
+        <i class="fa-solid fa-check me-2"></i>
+      {% elif "error" in message.tags %}
+        <i class="fa-solid fa-xmark me-2"></i>
+      {% else %}
+        <i class="fa-solid fa-circle-info me-2"></i>
+      {% endif %}
+      <strong class="me-auto">
+        {% if "success" in message.tags %}
+          Success
+        {% elif "error" in message.tags %}
+          Error
+        {% else %}
+          Info
+        {% endif %}
+      </strong>
+      <small>just now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{ message|safe }}
+      {% if on_service_detail_page %}
+        <hr>
+        <a class="btn btn-sm btn-{{message.tags}}" 
+          href="{% url 'view_bag' %}">View Your Bag</a>
+      {% endif %}
+    </div>
+  </div>
