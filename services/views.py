@@ -52,6 +52,8 @@ def service_detail(request, service_id):
 
     ``service``
         An instance of :model:`services.Service`.
+    ``on_service_detail_page``
+        An instance of :model:`services.Service`.
 
     **Template:**
 
@@ -62,6 +64,7 @@ def service_detail(request, service_id):
 
     context = {
         'service': service,
+        'on_service_detail_page': True,
     }
 
     return render(request, 'services/service_detail.html', context)
