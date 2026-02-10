@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -21,7 +22,7 @@ class Service(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     duration = models.PositiveIntegerField()
     session_count = models.PositiveIntegerField(default=1)
-    image = models.ImageField(null=True, blank=True)
+    featured_image = CloudinaryField('image', default='placeholder')
 
     class Meta:
         ordering = ['service_type', 'name']

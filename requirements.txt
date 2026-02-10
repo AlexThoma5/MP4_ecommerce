@@ -7,3 +7,5 @@ psycopg2==2.9.11
 setuptools==80.10.1
 sqlparse==0.5.5
 whitenoise==6.5.0
+cloudinary==1.36.0
+dj3-cloudinary-storage==0.0.6
