@@ -1,0 +1,10 @@
+/* Service Images */
+.sm-service-image {
+    max-width: 60px;
+    height: auto;
+}
+
+/* Hover styling */
+.hover-bg:hover {
+    background-color: #f8f9fa; /* light gray */
+}

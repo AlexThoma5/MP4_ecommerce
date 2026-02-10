@@ -14,10 +14,10 @@
                     <hr>
                     {% for item in bag_items %}
                         <!-- Service Cards -->
-                        <div class="card p-3 shadow-sm mt-3">
+                        <div class="card p-3 shadow-sm mt-3 hover-bg">
                             <div class="row align-items-center">
                                 <div class="col-md-2 d-none d-md-block order-0">
-                                    <img src="" alt="service-image" class="service-image">
+                                    <img src="{{ item.service.featured_image.url }}" alt="image of {{item.service.name}}" class="sm-service-image mx-2">
                                 </div>
                                 <div class="col-8 col-md-4 order-1">
                                     <h6 class="mb-1">{{ item.service.name }}</h6>
