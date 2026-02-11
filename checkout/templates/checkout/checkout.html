@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="h2 mb-4">Complete Your Order</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Order Summary column -->
+            <div class="col-lg-6 order-lg-last">
+                <div class="card p-4">
+                    <div class="card-title d-flex justify-content-between align-items-center mb-2">
+                        <h2 class="h5 mb-0">Order Summary</h2>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-7 offset-2">
+                            <p class="mb-2 mt-0 text-muted">Item</p>
+                        </div>
+                        <div class="col-3 text-end">
+                            <p class="mb-1 mt-0 text-muted">Price</p>
+                        </div>
+                    </div>
+                    {% for item in bag_items %}
+                        <div class="row mb-3 shadow-sm hover-bg py-2">
+                            <div class="col-2">
+                                {% if "placeholder" in item.service.featured_image.url %}
+                                    <img class="mx-xl-2 sm-service-image"
+                                         src="{% static 'images/default_service.png' %}"
+                                         alt="Default service image">
+                                {% else %}
+                                    <img src="{{ item.service.featured_image.url }}"
+                                         class="mx-xl-2 sm-service-image"
+                                         alt="image of {{ item.service.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="col-7">
+                                <div class="ms-2 ms-md-0">
+                                    <p class="mb-1 h6">{{ item.service.name|truncatewords:3 }}</p>
+                                    <p class="text-muted">sessions: {{ item.service.session_count }}</p>
+                                </div>
+                            </div>
+                            <div class="col-3 text-end">
+                                <p>£{{ item.service.price|floatformat:2 }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Subtotal</span>
+                        <span>£{{ total }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Services</span>
+                        <span>{{ service_count }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Discount</span>
+                        {% if discount %}
+                            <span class="text-success">-£</span>
+                        {% else %}
+                            <span class="text-muted">-£0.00</span>
+                        {% endif %}
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Total</span>
+                        <span class="fw-bold">£{{ grand_total|floatformat:2 }}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Checkout Form Column -->
+            <div class="col-lg-6">
+                <div class="card p-4 shadow-sm">
+                    <p class="text-muted mb-3">
+                        Please fill out your details below to complete your order.
+                    </p>
+                    <form action="{% url 'checkout' %}" method="post" id="payment-form">
+                        {% csrf_token %}
+                        {{ order_form |crispy }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
