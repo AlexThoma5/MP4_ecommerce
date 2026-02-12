@@ -34,7 +34,7 @@
                                 <div class="col-4 col-md-1 order-4 order-md-4 text-end text-md-start">
                                     <form method="post" action="{% url 'remove_from_bag' item.item_id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn p-0 text-danger" aria-label="Remove item">
+                                        <button type="submit" class="btn p-0 text-danger hover-lift" aria-label="Remove item">
                                         <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </form>
@@ -73,7 +73,7 @@
                         <span>£{{ total }}</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">services</span>
+                        <span class="text-muted">Services</span>
                         <span>{{ service_count }}</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -88,6 +88,16 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Total</span>
                         <span>£{{ grand_total }}</span>
+                    </div>
+                    <!-- Checkout Button -->
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <a href="{% url 'checkout' %}" 
+                                class="btn btn-primary py-2 px-4 hover-lift d-inline-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-shield me-2"></i>
+                                Proceed to Checkout
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
