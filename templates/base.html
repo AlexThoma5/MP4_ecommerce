@@ -70,8 +70,13 @@
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == bag_url %}active" aria-current="page{% endif %}"
                                href="{% url 'view_bag' %}">
-                                <div>
-                                    <i class="fas fa-shopping-bag fa-lg"></i>
+                               <div class="bag-icon">
+                                   <i class="fas fa-shopping-bag fa-lg"></i>
+                                   {% if service_count %}
+                                    <span class="bag-count">
+                                        {{ service_count }}
+                                    </span>
+                                    {% endif %}
                                 </div>
                             </a>
                         </li>

@@ -1,3 +1,27 @@
+/* Navbar Bag Icon */
+.bag-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.bag-count {
+    position: absolute;
+    top: -4px;
+    right: -12px;
+    background-color: #007f1f;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Service Images */
 .sm-service-image {
     max-width: 60px;
