@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle form submit
     const form = document.getElementById('payment-form');
+    const paymentForm = document.getElementById('payment-form');
+    const loadingOverlay = document.getElementById('loading-overlay');
 
     form.addEventListener('submit', async function(ev) {
         ev.preventDefault();
@@ -58,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Disable card and submit button
         card.update({ disabled: true });
         document.getElementById('submit-button').disabled = true;
+
+        // Hide form & show loading overlay (replaces fadeToggle)
+        paymentForm.style.display = 'none';
+        loadingOverlay.style.display = 'block';
 
         try {
             const result = await stripe.confirmCardPayment(clientSecret, {
@@ -75,7 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </span>
                     <span>${result.error.message}</span>
                 `;
-
+                
+                // Show form again and hide overlay
+                paymentForm.style.display = 'block';
+                loadingOverlay.style.display = 'none';
                 // Re-enable card and submit button
                 card.update({ disabled: false });
                 document.getElementById('submit-button').disabled = false;

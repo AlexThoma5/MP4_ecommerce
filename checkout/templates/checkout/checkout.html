@@ -17,7 +17,7 @@
         <div class="row g-4">
             <!-- Order Summary column -->
             <div class="col-lg-6 order-lg-last">
-                <div class="card p-4">
+                <div class="card p-4 shadow-sm">
                     <div class="card-title d-flex justify-content-between align-items-center mb-2">
                         <h2 class="h5 mb-0">Order Summary</h2>
                     </div>
@@ -111,13 +111,21 @@
                                 <span class="icon">
                                     <i class="fas fa-exclamation-circle"></i>
                                 </span>
-                                <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                             </p>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Loading overlay -->
+    <div id="loading-overlay">
+        <p class="h1 text-light logo-font loading-spinner">
+            <span class="icon">
+                <i class="fas fa-3x fa-spinner fa-spin"></i>
+            </span>
+        </p>
     </div>
 {% endblock %}
 
