@@ -1,21 +1,69 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block content %}
     <div class="container my-3">
         <div class="row">
-            <div class="col-12">
-                <h1 class="h2 mb-4">Thank You</h1>
-                <hr>
-                <p>Your order number is <strong>{{order.order_number}}</strong></p>
-                <p>Email confirmation has beeen sent to <strong>{{order.email}}</strong></p>
+            <div class="col-12 text-center">
+                <i class="fa-solid fa-circle-check success-icon mb-4"></i>
+                <h1 class="h2 mb-3">Payment Successful!</h1>
+                <p class="mb-1">Thank you for your order with Motion Lab</p>
+                <p class="text-muted small mb-0">
+                    Confirmation sent to
+                    <span class="fw-semibold text-dark">{{ order.email }}</span>
+                </p>
             </div>
         </div>
-        <div class="row g-4">
+        <div class="row mt-4 justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card p-4 shadow-sm">
+                    <div class="card-title text-start fw-semibold mb-1">Order Details</div>
+                    <hr>
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-4 text-muted mb-1">Order Number:</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.order_number }}</div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-4 text-muted mb-1">Order Date:</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.date }}</div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-12 text-muted">Services:</div>
+                    </div>
+                    {% for item in order.lineitems.all %}
+                        <div class="row mb-1 rounded bg-light p-2">
+                            <div class="col-md-8 mb-1">
+                                {{ item.service.name }}
+                                <br>
+                                <span class="text-muted">sessions: {{ item.service.session_count }}</span>
+                            </div>
+                            <div class="col-md-4 text-md-end">£{{ item.service.price }}</div>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="row mb-1">
+                        <div class="col-4 text-muted">Subtotal:</div>
+                        <div class="col-8 text-end">£{{ order.order_total }}</div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-4 text-muted">Discount:</div>
+                        <div class="col-8 text-end">
+                            {% if order.discount %}
+                                £{{ order.discount }}
+                            {% else %}
+                                £0.00
+                            {% endif %}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mb-1">
+                        <div class="col-4 fw-semibold">Total Paid</div>
+                        <div class="col-8 fw-semibold text-end">£{{ order.grand_total }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

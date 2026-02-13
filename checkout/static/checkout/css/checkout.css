@@ -1,3 +1,5 @@
+/* stripe */
+
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
@@ -23,4 +25,11 @@
 
 .stripe-style-input::placeholder {
     color: #aab7c4;
+}
+
+/* Success Page */
+
+.success-icon {
+    font-size: 60px;
+    color: green;
 }
