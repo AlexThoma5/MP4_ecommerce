@@ -65,15 +65,43 @@ document.addEventListener('DOMContentLoaded', () => {
         paymentForm.style.display = 'none';
         loadingOverlay.style.display = 'block';
 
+        // Get save info and csrf token
+        const saveInfoElement = document.getElementById('id-save-info');
+        const saveInfo = saveInfoElement ? saveInfoElement.checked : false;
+        const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+        // Prepare POST data
+        const postData = new FormData();
+        postData.append('csrfmiddlewaretoken', csrfToken);
+        postData.append('client_secret', clientSecret);
+        postData.append('save_info', saveInfo);
+
+
         try {
+            // Send POST request (replaces $.post)
+            const response = await fetch('/checkout/cache_checkout_data/', {
+                method: 'POST',
+                body: postData,
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            // Confirm the card payment
             const result = await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
-                }
+                    billing_details: {
+                        name: form.full_name.value.trim(),
+                        phone: form.phone_number.value.trim(),
+                        email: form.email.value.trim(),
+                    }
+                },
             });
 
             if (result.error) {
-                // Display error in #card-errors
+                // Show error
                 const errorDiv = document.getElementById('card-errors');
                 errorDiv.innerHTML = `
                     <span class="icon" role="alert">
@@ -81,11 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </span>
                     <span>${result.error.message}</span>
                 `;
-                
-                // Show form again and hide overlay
-                paymentForm.style.display = 'block';
+
+                // Re-enable form
+                form.style.display = 'block';
                 loadingOverlay.style.display = 'none';
-                // Re-enable card and submit button
                 card.update({ disabled: false });
                 document.getElementById('submit-button').disabled = false;
             } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
@@ -93,10 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } catch (error) {
-            // Fallback if something goes wrong
-            console.error('Payment error:', error);
-            card.update({ disabled: false });
-            document.getElementById('submit-button').disabled = false;
+            console.error('Payment failed:', error);
+            // Reload page if caching POST fails
+            location.reload();
         }
     });
 });
