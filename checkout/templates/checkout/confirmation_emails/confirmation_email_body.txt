@@ -1,0 +1,30 @@
+Hello {{ order.full_name }},
+
+Thank you for choosing Motion Lab.
+
+This email confirms that we have successfully received your order. Your purchase details are outlined below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Summary
+
+Service Total: £{{ order.order_total }}
+Grand Total: £{{ order.grand_total }}
+
+What Happens Next
+
+Your physiotherapy service purchase has been recorded in our system.
+We will contact you shortly using the details provided to arrange the next steps.
+
+Contact Details on File
+
+Email: {{ order.email }}
+Phone: {{ order.phone_number }}
+
+If any of your details are incorrect, or if you have any questions in the meantime, please contact us at {{ contact_email }}.
+
+We appreciate your trust in Motion Lab and look forward to supporting your recovery and performance goals.
+
+Kind regards,
+Motion Lab

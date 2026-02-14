@@ -1,4 +1,8 @@
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
 from .models import Order, OrderLineItem
 from services.models import Service
 
@@ -20,6 +24,22 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
+
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     def handle_payment_intent_succeeded(self, event):
         """
@@ -57,6 +77,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=(
                     f'Webhook received: {event["type"]} | SUCCESS: '
@@ -92,6 +113,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500
                 )
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '
