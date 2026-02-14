@@ -17,7 +17,7 @@
                     <h5 class="card-title mb-1">{{ service.name }}</h5>
                     <small class="text-muted">{{ service.duration }} mins</small>
                     <p class="card-text text-muted mb-2">
-                        {{ service.description|truncatechars:50 }}
+                        {{ service.description|striptags|truncatechars:50 }}
                     </p>
                     <p class="fw-semibold mb-2">£{{ service.price }}</p>
                     <div class="mt-auto align-self-end">
