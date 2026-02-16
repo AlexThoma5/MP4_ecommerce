@@ -51,7 +51,7 @@
                         <div class="col-4 text-muted">Discount:</div>
                         <div class="col-8 text-end">
                             {% if order.discount %}
-                                £{{ order.discount }}
+                                -£{{ order.discount_amount }}
                             {% else %}
                                 £0.00
                             {% endif %}

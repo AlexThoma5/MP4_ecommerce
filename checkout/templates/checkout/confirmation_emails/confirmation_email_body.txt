@@ -10,6 +10,7 @@ Order Date: {{ order.date }}
 Order Summary
 
 Service Total: £{{ order.order_total }}
+Discount: -£{{ order.discount_amount}}
 Grand Total: £{{ order.grand_total }}
 
 What Happens Next

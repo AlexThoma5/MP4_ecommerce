@@ -63,14 +63,18 @@
                         <span class="text-muted">Services</span>
                         <span>{{ service_count }}</span>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
                         <span class="text-muted">Discount</span>
-                        {% if discount %}
-                            <span class="text-success">-£</span>
-                        {% else %}
-                            <span class="text-muted">-£0.00</span>
-                        {% endif %}
+                    {% if discount %}
+                        <span class="text-success">-£{{ discount_amount }}</span>
                     </div>
+                    <div class="d-flex align-items-center justify-content-end mb-2">
+                        <small class="text-secondary mb-0">'{{ discount.code }}' - {{discount.percentage}}% off</small>
+                    </div>
+                    {% else %}
+                        <span class="text-muted">-£0.00</span>
+                    </div>
+                    {% endif %}
                     <hr>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Total</span>
