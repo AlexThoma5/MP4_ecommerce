@@ -8,7 +8,8 @@
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h4 class="mb-0">Your Shopping Bag</h4>
-                        <span class="text-muted">{{ service_count }} item{% if service_count > 1 %}s{% endif %}
+                        <span class="text-muted">{{ service_count }} item
+                            {% if service_count > 1 %}s{% endif %}
                         </span>
                     </div>
                     <hr>
@@ -17,7 +18,9 @@
                         <div class="card p-3 shadow-sm mt-3 hover-bg">
                             <div class="row align-items-center">
                                 <div class="col-md-2 d-none d-md-block order-0">
-                                    <img src="{{ item.service.featured_image.url }}" alt="image of {{item.service.name}}" class="sm-service-image mx-2">
+                                    <img src="{{ item.service.featured_image.url }}"
+                                         alt="image of {{ item.service.name }}"
+                                         class="sm-service-image mx-2">
                                 </div>
                                 <div class="col-8 col-md-4 order-1">
                                     <h6 class="mb-1">{{ item.service.name }}</h6>
@@ -28,14 +31,17 @@
                                 </div>
                                 <div class="col-8 col-md-3 order-3 order-md-2">
                                     <p class="text-muted mb-0">
-                                        {{ item.service.session_count }} session{% if item.service.session_count > 1 %}s{% endif %}
+                                        {{ item.service.session_count }} session
+                                        {% if item.service.session_count > 1 %}s{% endif %}
                                     </p>
                                 </div>
                                 <div class="col-4 col-md-1 order-4 order-md-4 text-end text-md-start">
                                     <form method="post" action="{% url 'remove_from_bag' item.item_id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn p-0 text-danger hover-lift" aria-label="Remove item">
-                                        <i class="fa-solid fa-trash-can"></i>
+                                        <button type="submit"
+                                                class="btn p-0 text-danger hover-lift"
+                                                aria-label="Remove item">
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </form>
                                 </div>
@@ -76,14 +82,21 @@
                         <span class="text-muted">Services</span>
                         <span>{{ service_count }}</span>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
                         <span class="text-muted">Discount</span>
                         {% if discount %}
-                            <span class="text-success">-£</span>
+                            <span class="text-success">-£{{ discount_amount }}</span>
                         {% else %}
                             <span class="text-muted">-£0.00</span>
                         {% endif %}
                     </div>
+                    {% if discount %}
+                        <div class="d-flex align-items-center justify-content-end mb-2">
+                            <small class="text-secondary mb-0">'{{ discount.code }}' - {{ discount.percentage }}% off</small>
+                        </div>
+                    {% endif %}
+                    <!-- Discount code form input -->
+                    {% include 'bag/bag_discount_form.html' %}
                     <hr>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Total</span>
@@ -92,9 +105,9 @@
                     <!-- Checkout Button -->
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <a href="{% url 'checkout' %}" 
-                                class="btn btn-primary py-2 px-4 hover-lift d-inline-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-shield me-2"></i>
+                            <a href="{% url 'checkout' %}"
+                               class="btn btn-primary py-2 px-4 hover-lift d-inline-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-shield-halved me-2"></i>
                                 Proceed to Checkout
                             </a>
                         </div>

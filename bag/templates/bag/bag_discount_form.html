@@ -1,0 +1,9 @@
+<form action="{% url 'apply_discount_code' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group my-2">
+        <input type="text" class="form-control" name="discount_code"
+            placeholder="Discount Code"
+            aria-label="Discount code field" aria-describedby="apply-discount-btn">
+        <button class="btn btn-outline-secondary" type="submit" id="apply-discount-btn">Apply</button>
+    </div>
+</form>
