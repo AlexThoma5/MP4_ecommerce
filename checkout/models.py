@@ -1,11 +1,29 @@
 import uuid
+from decimal import Decimal
 
 from django.db import models
 from django.db.models import Sum
 
 from services.models import Service
 
-# Create your models here.
+
+class Discount(models.Model):
+    code = models.CharField(max_length=16, unique=True, null=False,
+                            blank=False)
+    percentage = models.PositiveSmallIntegerField()
+    active = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to strip and convert the
+        discount code to uppercase.
+        """
+        self.code = self.code.strip().upper()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.code} - %{self.percentage}'
 
 
 class Order(models.Model):
@@ -21,6 +39,11 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
+    discount = models.ForeignKey(Discount, null=True, blank=True,
+                                 on_delete=models.SET_NULL,
+                                 related_name='orders')
+    discount_amount = models.DecimalField(max_digits=6, decimal_places=2,
+                                          null=False, default=0)
 
     def _generate_order_number(self):
         """
@@ -31,11 +54,17 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added,
-        accounting for delivery costs.
+        accounting for discounts.
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        self.grand_total = self.order_total
+        if self.discount and self.discount.active:
+            self.discount_amount = round(
+                self.order_total * Decimal(self.discount.percentage / 100), 2)
+        else:
+            self.discount_amount = 0
+
+        self.grand_total = self.order_total - self.discount_amount
         self.save()
 
     def save(self, *args, **kwargs):
