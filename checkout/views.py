@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, Discount
 from services.models import Service
 from bag.contexts import bag_contents
 
@@ -50,6 +50,19 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+
+            # Discount logic
+            discount_id = request.session.get('discount_id')
+            if discount_id:
+                try:
+                    discount = Discount.objects.get(
+                        pk=discount_id, active=True)
+                    order.discount = discount
+                    order.save()
+                    request.session.pop('discount_id', None)
+                except Discount.DoesNotExist:
+                    request.session.pop('discount_id', None)
+
             for item_id, item_data in bag.items():
                 try:
                     service = Service.objects.get(id=item_id)
