@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="h2 mb-4">My Profile</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Account details -->
+            <div class="col-12 col-lg-4 order-lg-last">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title mb-3 h5">Account Details</h2>
+                        <hr>
+                        <!-- Username -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-muted">Username</span>
+                            <span class="fw-semibold">{{ user.username }}</span>
+                        </div>
+                        <!-- Email -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-muted">Email</span>
+                            <span class="fw-semibold small">{{ user.email|truncatechars:18 }}</span>
+                        </div>
+                        <!-- Name -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-muted">Full Name</span>
+                            {% if user.userprofile.default_full_name %}
+                                <span class="fw-semibold">
+                                    {{ user.userprofile.default_full_name }}
+                                </span>
+                            {% else %}
+                                <span class="small text-muted">
+                                    N/A
+                                </span>
+                            {% endif %}
+                        </div>
+                        <!-- Phone number -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-muted">Phone Number</span>
+                            {% if user.userprofile.default_full_name %}
+                                <span class="fw-semibold">
+                                    {{ user.userprofile.default_phone_number }}
+                                </span>
+                            {% else %}
+                                <span class="small text-muted">
+                                    N/A
+                                </span>
+                            {% endif %}
+                        </div>
+                        <hr>
+                        <!-- Edit contact details button -->
+                        <a href="#"
+                        class="text-decoration-none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editContactDetailsModal">
+                            <div class="d-flex justify-content-between align-items-center hover-bg text-muted p-2 rounded">
+                                <span class="small text-muted">
+                                    <i class="fa-solid fa-user-pen me-2"></i>
+                                    Edit Contact Details
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <!-- Manage email address -->
+                        <a href="{% url 'account_email' %}" class=" text-decoration-none">
+                            <div class="d-flex justify-content-between align-items-center hover-bg text-muted p-2 rounded">
+                                <span class="small text-muted">
+                                    <i class="fa-solid fa-envelope me-2"></i>
+                                    Manage Email
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <!-- Manage password -->
+                        <a href="{% url 'account_change_password' %}" class="text-decoration-none">
+                            <div class="d-flex justify-content-between align-items-center hover-bg text-muted p-2 rounded">
+                                <span class="small">
+                                    <i class="fa-solid fa-lock me-2"></i>
+                                    Manage Password
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Order History -->
+            <div class="col-12 col-lg-8">
+                <div class="card p-4 shadow-sm">
+                    <div class="card-title d-flex justify-content-between align-items-center mb-2">
+                        <h2 class="h5 mb-0">Order History</h2>
+                    </div>
+                    <hr>
+                    <div class="row gap-2">
+                        {% for order in orders %}
+                            <div class="card shadow-sm hover-lift">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-white">
+                                    <div>
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}" class="text-decoration-none">
+                                            Order #{{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                        <small class="ms-4 text-muted">{{ order.date|date:"F j, Y" }}</small>
+                                    </div>
+                                    <span class="badge text-bg-light border rounded-pill py-2 px-3 fw-normal">Completed</span>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    {% for item in order.lineitems.all %}
+                                        <li class="list-group-item py-2 px-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <p class="mb-0">{{item.service.name}}</p>
+                                                    <small class="mb-0 text-muted">Sessions: {{item.service.session_count}}</small>
+                                                </div>
+                                                <div class="col-4 text-end">
+                                                    <p class="mb-0 text-muted">£{{ item.service.price }}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="card-footer bg-white">
+                                    <div class="text-end">
+                                        <p class="mb-0">
+                                            <span class="text-muted me-2">Total paid:</span>
+                                            <span class="fw-bold">£{{ order.grand_total }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
