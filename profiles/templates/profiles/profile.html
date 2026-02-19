@@ -149,3 +149,7 @@
     </div>
     {% include 'profiles/edit-contact-modal.html'%}
 {% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'profiles/js/profile.js' %}"></script>
+{% endblock %}
