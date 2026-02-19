@@ -1,0 +1,36 @@
+{% load crispy_forms_tags %}
+
+<div class="modal fade"
+     id="editContactDetailsModal"
+     tabindex="-1"
+     aria-labelledby="editContactDetailsModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" id="editContactDetailsForm">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h2 class="modal-title h5 px-2" id="editContactDetailsModalLabel">Edit Your Details</h2>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body container">
+                    <div class="row justify-content-center px-2 pt-3">
+                        <div class="col">{{ form | crispy }}</div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-md hover-lift" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button id="editSubmitButton" type="submit" class="btn btn-primary btn-md hover-lift">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
