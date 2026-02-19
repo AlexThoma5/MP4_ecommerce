@@ -5,18 +5,33 @@
 {% endblock %}
 {% block content %}
     <div class="container my-3">
-        <div class="row">
-            <div class="col-12 text-center">
-                <i class="fa-solid fa-circle-check success-icon mb-4"></i>
-                <h1 class="h2 mb-3">Payment Successful!</h1>
-                <p class="mb-1">Thank you for your order with Motion Lab</p>
-                <p class="text-muted small mb-0">
-                    Confirmation sent to
-                    <span class="fw-semibold text-dark">{{ order.email }}</span>
-                </p>
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-lg-8 text-center">
+                {% if from_profile %}
+                    <div class="alert alert-light border mb-1">
+                        <h1 class="h4">Order #{{ order.order_number| truncatechars:12 }}</h1>
+                        <div class="small text-muted mb-3">
+                            This is a previous order from your account.
+                        </div>
+                        <a href="{% url 'profile' %}" class="btn btn-ms btn-primary">
+                            <span class="icon m3-2">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                            <span>Return</span>
+                        </a>
+                    </div>
+                {% else %}
+                    <i class="fa-solid fa-circle-check success-icon mb-4"></i>
+                    <h1 class="h2 mb-3">Payment Successful!</h1>
+                    <p class="mb-1">Thank you for your order with Motion Lab</p>
+                    <p class="text-muted small mb-0">
+                        Confirmation sent to
+                        <span class="fw-semibold text-dark">{{ order.email }}</span>
+                    </p>
+                {% endif %}
             </div>
         </div>
-        <div class="row mt-4 justify-content-center">
+        <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="card p-4 shadow-sm">
                     <div class="card-title text-start fw-semibold mb-1">Order Details</div>
