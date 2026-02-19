@@ -5,6 +5,7 @@
 {% url 'account_logout' as logout_url %}
 {% url 'services' as services_url %}
 {% url 'view_bag' as bag_url %}
+{% url 'profile' as profile_url %}
 <!DOCTYPE html>
 <html class="h-100" lang="en">
     <head>
@@ -58,17 +59,35 @@
                             <a class="nav-link {% if request.path == services_url %}active" aria-current="page{% endif %}"
                                href="{% url 'services' %}">Services</a>
                         </li>
-                        {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
-                                   href="{% url 'account_logout' %}">Logout</a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                                   href="{% url 'account_signup' %}">Sign Up</a>
-                            </li>
-                        {% endif %}
+                        <!-- My Account Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               id="user-options"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                My Account
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0"
+                                aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    <li>
+                                        <a href="{% url 'profile' %}" class="dropdown-item {% if request.path == profile_url %}active" aria-current="page{% endif %}">My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account_logout' %}" class="dropdown-item {% if request.path == logout_url %}active" aria-current="page{% endif %}">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{% url 'account_signup' %}" class="dropdown-item {% if request.path == signup_url %}active" aria-current="page{% endif %}">Register</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account_login' %}" class="dropdown-item {% if request.path == login_url %}active" aria-current="page{% endif %}">Login</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == bag_url %}active" aria-current="page{% endif %}"
                                href="{% url 'view_bag' %}">
