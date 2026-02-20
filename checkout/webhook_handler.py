@@ -5,6 +5,7 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from services.models import Service
+from profiles.models import UserProfile
 
 import stripe
 import json
@@ -58,6 +59,16 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details  # updated
         grand_total = round(stripe_charge.amount / 100, 2)  # updated
 
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_full_name = billing_details.name
+                profile.default_phone_number = billing_details.phone
+                profile.save()
+
         # Check if the order already exists
         order_exists = False
         attempt = 1
@@ -90,6 +101,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     grand_total=grand_total,
