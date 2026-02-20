@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Service
+from .forms import ServiceForm
 
 
 # Create your views here.
@@ -20,6 +23,9 @@ def all_services(request):
         All package deal services.
     ``treatment_services``
         All treatment services.
+    ``service_form``
+        An instance of :form:`services.ServiceForm`
+
 
     **Template:**
 
@@ -33,12 +39,15 @@ def all_services(request):
     package_services = services.filter(service_type=3)
     treatment_services = services.filter(service_type=4)
 
+    service_form = ServiceForm()
+
     context = {
         "services": services,
         "initial_services": initial_services,
         "follow_up_services": follow_up_services,
         "package_services": package_services,
         "treatment_services": treatment_services,
+        'service_form': service_form,
     }
 
     return render(request, 'services/services.html', context)
@@ -69,3 +78,25 @@ def service_detail(request, service_id):
     }
 
     return render(request, 'services/service_detail.html', context)
+
+
+@login_required
+def add_service(request):
+    """
+    Allow the superuser to add a new :model:`services.Service`.
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect('home')
+
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added service!')
+        else:
+            messages.error(
+                request, 'Failed to add service.'
+                ' Please ensure the form is valid.')
+
+    return redirect('services')
