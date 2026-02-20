@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <!-- Page title -->
@@ -43,4 +47,7 @@
             {% endfor %}
         </div>
     </div>
+    {% if request.user.is_superuser %}
+        {% include 'services/add-service-modal.html' %}
+    {% endif %}
 {% endblock %}
