@@ -100,3 +100,30 @@ def add_service(request):
                 ' Please ensure the form is valid.')
 
     return redirect('services')
+
+
+@login_required
+def edit_service(request, service_id):
+    """
+    Allow superuser to edit an existing service
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect('home')
+
+    service = get_object_or_404(Service, pk=service_id)
+
+    if request.method == "POST":
+        print(request.POST)
+        form = ServiceForm(request.POST, request.FILES, instance=service)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated service!')
+            redirect('services')
+        else:
+            print(form.errors)
+            messages.error(
+                request,
+                'Failed to update service. Please ensure the form is valid.')
+
+    return redirect('services')
