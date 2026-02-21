@@ -1,10 +1,15 @@
 /* jshint esversion: 11 */
 
+// Edit functionality setup
 const editButtons = document.getElementsByClassName("btn-edit");
 const editServiceForm = document.getElementById("editServiceForm");
 const hiddenDescriptionInput = document.getElementById("hidden-description");
 const modalEl = document.getElementById("editServiceModal");
 const newEditModal = new bootstrap.Modal(modalEl);
+
+// Delete functionality setup
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteButtons = document.getElementsByClassName("btn-delete");
 
 // Quill initilisation, help from chatGPT on setup
 const quill = new Quill("#quill-editor", {
@@ -84,3 +89,27 @@ editServiceForm.addEventListener("submit", function () {
     hiddenDescriptionInput.value = content;
   }
 });
+
+// DELETE MODAL LOGIC BELOW
+
+/**
+ * Initializes deletion functionality for the provided delete buttons.
+ *
+ * For each button in the `deleteButtons` collection:
+ * - Retrieves the associated service’s ID and name when clicked.
+ * - Updates the confirmation modal’s service name display (`service-name`).
+ * - Sets the `deleteConfirm` link's href to the delete URL for that service.
+ * - Displays the confirmation modal (`deleteModal`) to prompt the user
+ *   for confirmation before deletion.
+ */
+for (let button of deleteButtons) {
+  button.addEventListener("click", (e) => {
+    let serviceId = e.currentTarget.getAttribute("data-service_id");
+    let serviceName = e.currentTarget.getAttribute("data-service_name");
+    const deleteConfirm = document.getElementById("deleteConfirm");
+    const deleteName = document.getElementById("service-name");
+    deleteName.innerText = serviceName
+    deleteConfirm.href = `delete/${serviceId}`;
+    deleteModal.show();
+  });
+}
