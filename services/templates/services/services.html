@@ -54,18 +54,17 @@
                                 </button>
                             </div>
                         {% endif %}
-                        <a href="{% url 'service_detail' service.id %}"
-                           class="text-decoration-none text-reset">
-                            <div class="card-body d-flex flex-column">
-                                <h2 class="card-title mb-1 h5">{{ service.name }}</h2>
-                                <small class="text-muted">{{ service.duration }} mins</small>
-                                <p class="card-text text-muted mb-2">{{ service.description|striptags|truncatechars:50 }}</p>
-                                <p class="fw-semibold mb-2">£{{ service.price }}</p>
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title mb-1 h5">{{ service.name }}</h2>
+                            <small class="text-muted">{{ service.duration }} mins</small>
+                            <p class="card-text text-muted mb-2">{{ service.description|striptags|truncatechars:50 }}</p>
+                            <p class="fw-semibold mb-2">£{{ service.price }}</p>
+                        </div>
+                        <div class="card-footer text-body-secondary text-end">
+                            <a href="{% url 'service_detail' service.id %}"
+                                class="btn btn-sm btn-outline-primary stretched-link">Continue
+                            </a>
                             </div>
-                            <div class="card-footer text-body-secondary text-end">
-                                <span class="btn btn-sm btn-outline-primary">Continue</span>
-                            </div>
-                        </a>
                     </div>
                 </div>
             {% endfor %}
