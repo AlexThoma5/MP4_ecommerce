@@ -1,6 +1,7 @@
 /* Services page css */
 
-#addServiceModal .modal-body {
+#addServiceModal .modal-body,
+#editServiceModal .modal-body {
     max-height: 70vh;
     overflow-y: auto;
 }
