@@ -71,5 +71,10 @@
     </div>
     {% if request.user.is_superuser %}
         {% include 'services/add-service-modal.html' %}
+        {% include 'services/edit-service-modal.html' %}
     {% endif %}
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'services/js/services.js' %}" defer></script>
 {% endblock %}
