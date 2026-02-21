@@ -40,6 +40,7 @@ def all_services(request):
     treatment_services = services.filter(service_type=4)
 
     service_form = ServiceForm()
+    edit_service_form = ServiceForm(prefix="edit")
 
     context = {
         "services": services,
@@ -48,6 +49,7 @@ def all_services(request):
         "package_services": package_services,
         "treatment_services": treatment_services,
         'service_form': service_form,
+        'edit_service_form': edit_service_form,
     }
 
     return render(request, 'services/services.html', context)
@@ -114,7 +116,6 @@ def edit_service(request, service_id):
     service = get_object_or_404(Service, pk=service_id)
 
     if request.method == "POST":
-        print(request.POST)
         form = ServiceForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
