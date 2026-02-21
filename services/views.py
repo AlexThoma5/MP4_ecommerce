@@ -128,3 +128,16 @@ def edit_service(request, service_id):
                 'Failed to update service. Please ensure the form is valid.')
 
     return redirect('services')
+
+
+@login_required
+def delete_service(request, service_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect('home')
+
+    service = get_object_or_404(Service, pk=service_id)
+    service.delete()
+    messages.success(request, 'Deleted service!')
+    return redirect('services')
