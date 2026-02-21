@@ -75,6 +75,7 @@
             <div class="col-lg-4">
                 <div class="card p-4 mt-lg-5">
                     <h5>Order Summary</h5>
+                    <hr>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Subtotal</span>
                         <span>£{{ total }}</span>
@@ -83,14 +84,12 @@
                         <span class="text-muted">Services</span>
                         <span>{{ service_count }}</span>
                     </div>
+                    {% if discount %}
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <span class="text-muted">Discount</span>
-                        {% if discount %}
                             <span class="text-success">-£{{ discount_amount }}</span>
-                        {% else %}
-                            <span class="text-muted">-£0.00</span>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
                     {% if discount %}
                         <div class="d-flex align-items-center justify-content-end mb-2">
                             <small class="text-secondary mb-0">'{{ discount.code }}' - {{ discount.percentage }}% off</small>

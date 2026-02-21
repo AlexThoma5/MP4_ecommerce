@@ -10,9 +10,7 @@
                 {% if from_profile %}
                     <div class="alert alert-light border mb-1">
                         <h1 class="h4">Order #{{ order.order_number| truncatechars:12 }}</h1>
-                        <div class="small text-muted mb-3">
-                            This is a previous order from your account.
-                        </div>
+                        <div class="small text-muted mb-3">This is a previous order from your account.</div>
                         <a href="{% url 'profile' %}" class="btn btn-ms btn-primary">
                             <span class="icon m3-2">
                                 <i class="fas fa-angle-left"></i>
@@ -62,16 +60,12 @@
                         <div class="col-4 text-muted">Subtotal:</div>
                         <div class="col-8 text-end">£{{ order.order_total }}</div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-4 text-muted">Discount:</div>
-                        <div class="col-8 text-end">
-                            {% if order.discount %}
-                                -£{{ order.discount_amount }}
-                            {% else %}
-                                £0.00
-                            {% endif %}
+                    {% if order.discount %}
+                        <div class="row mb-1">
+                            <div class="col-4 text-muted">Discount:</div>
+                            <div class="col-8 text-end">-£{{ order.discount_amount }}</div>
                         </div>
-                    </div>
+                    {% endif %}
                     <hr>
                     <div class="row mb-1">
                         <div class="col-4 fw-semibold">Total Paid</div>

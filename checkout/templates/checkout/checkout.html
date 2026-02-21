@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block content %}
     <div class="container my-3">
         <div class="row">
@@ -17,7 +15,7 @@
         <div class="row g-4">
             <!-- Order Summary column -->
             <div class="col-lg-6 order-lg-last">
-                <div class="card p-4 shadow-sm">
+                <div class="card p-4 shadow-sm h-100">
                     <div class="card-title d-flex justify-content-between align-items-center mb-2">
                         <h2 class="h5 mb-0">Order Summary</h2>
                     </div>
@@ -63,17 +61,14 @@
                         <span class="text-muted">Services</span>
                         <span>{{ service_count }}</span>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <span class="text-muted">Discount</span>
                     {% if discount %}
-                        <span class="text-success">-£{{ discount_amount }}</span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-end mb-2">
-                        <small class="text-secondary mb-0">'{{ discount.code }}' - {{discount.percentage}}% off</small>
-                    </div>
-                    {% else %}
-                        <span class="text-muted">-£0.00</span>
-                    </div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="text-muted">Discount</span>
+                            <span class="text-success">-£{{ discount_amount }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-end mb-2">
+                            <small class="text-secondary mb-0">'{{ discount.code }}' - {{ discount.percentage }}% off</small>
+                        </div>
                     {% endif %}
                     <hr>
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -85,23 +80,25 @@
             <!-- Checkout Form Column -->
             <div class="col-lg-6">
                 <div class="card p-4 shadow-sm">
-                    <p class="text-muted mb-3">
-                        Please fill out your details below to complete your order.
-                    </p>
+                    <p class="text-muted mb-3">Please fill out your details below to complete your order.</p>
                     <form action="{% url 'checkout' %}" method="post" id="payment-form">
                         {% csrf_token %}
                         {{ order_form |crispy }}
                         <div class="form-check form-check-inline ms-2">
-							{% if user.is_authenticated %}
-								<label class="form-check-label" for="id-save-info">Save information</label>
-                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-							{% else %}
-								<label class="form-check-label" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                            {% if user.is_authenticated %}
+                                <label class="form-check-label" for="id-save-info">Save information</label>
+                                <input class="form-check-input ml-2 mr-0"
+                                       type="checkbox"
+                                       id="id-save-info"
+                                       name="save-info"
+                                       checked>
+                            {% else %}
+                                <label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
                                     <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                                 </label>
-							{% endif %}
-						</div>
+                            {% endif %}
+                        </div>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3 mt-2" id="card-element"></div>
                         <!-- Used to display form errors -->
@@ -143,7 +140,6 @@
         </p>
     </div>
 {% endblock %}
-
 {% block postloadjs %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
