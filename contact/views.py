@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
+
 from .forms import ContactForm
 
 
@@ -16,8 +19,16 @@ def contact_view(request):
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
-            contact_form.save()
-            # Send email here
+            instance = contact_form.save()
+            send_mail(
+                subject='Thanks for contacting us!',
+                message=f"Hi {instance.full_name},\n\n"
+                        "Thanks for reaching out. We have received your message "
+                        "and will respond within 3 days.",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[instance.email],
+                fail_silently=False,
+            )
             messages.success(request,
                              "Your message has been received!"
                              " We will aim to respond within 3 days")
