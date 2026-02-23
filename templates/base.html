@@ -6,6 +6,8 @@
 {% url 'services' as services_url %}
 {% url 'view_bag' as bag_url %}
 {% url 'profile' as profile_url %}
+{% url 'contact' as contact_url %}
+
 <!DOCTYPE html>
 <html class="h-100" lang="en">
     <head>
@@ -58,6 +60,10 @@
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == services_url %}active" aria-current="page{% endif %}"
                                href="{% url 'services' %}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
+                               href="{% url 'contact' %}">Contact</a>
                         </li>
                         <!-- My Account Dropdown -->
                         <li class="nav-item dropdown">
