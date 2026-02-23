@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 from .forms import ContactForm
+from .models import CompanyDetails
 
 
 def contact_view(request):
@@ -37,10 +38,13 @@ def contact_view(request):
             messages.error(
                 request, 'Update failed. Please ensure the form is valid.')
     else:
+        company_details = CompanyDetails.objects.all().order_by(
+            '-updated_on').first()
         contact_form = ContactForm()
 
     context = {
         "contact_form": contact_form,
+        "company_details": company_details,
         }
 
     return render(request, "contact/contact.html", context)
