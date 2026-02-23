@@ -30,3 +30,19 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f'Contact message from {self.full_name}'
+
+
+class CompanyDetails(models.Model):
+    """
+    Stores Company details
+    """
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    address = models.TextField()
+
+    class Meta:
+        verbose_name = 'Company Details'
+        verbose_name_plural = 'Company Details'
+
+    def __str__(self):
+        return f'{self.email} - {self.phone_number}'
