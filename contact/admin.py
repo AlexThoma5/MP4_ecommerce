@@ -16,6 +16,6 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
 @admin.register(CompanyDetails)
 class CompanyDetailsAdmin(SummernoteModelAdmin):
-    list_display = ('email', 'phone_number',)
+    list_display = ('email', 'phone_number', 'updated_on',)
 
     summernote_fields = ('address',)

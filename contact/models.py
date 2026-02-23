@@ -39,6 +39,7 @@ class CompanyDetails(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     address = models.TextField()
+    updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Company Details'
