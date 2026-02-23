@@ -1,16 +1,63 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {% block content %}
     <div class="container my-3">
         <div class="row">
             <div class="col-12">
-                <h1 class="h2 mb-4">Contact Us</h1>
+                <h1 class="h2 mb-4 text-center text-lg-start">Contact Us</h1>
                 <hr>
             </div>
         </div>
         <div class="row g-4">
+
+            <!-- Company details -->
+            <div class="col-12 col-lg-4 order-lg-last">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title mb-3 h5">Contact Details</h2>
+                        <hr>
+                        <!-- Email -->
+                        <a href="mailto:{{ company_details.email }}"
+                           class="text-decoration-none">
+                            <div class="d-flex justify-content-between align-items-center hover-lift hover-bg text-muted p-2 rounded">
+                                <span class="small text-muted">
+                                    <i class="fa-solid fa-envelope me-2"></i>
+                                    {{ company_details.email }}
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <!-- Phone Number -->
+                        <a href="tel:{{ company_details.phone_number }}"
+                           class="text-decoration-none">
+                            <div class="d-flex justify-content-between align-items-center hover-lift hover-bg text-muted p-2 rounded">
+                                <span class="small text-muted">
+                                    <i class="fa-solid fa-phone me-2"></i>
+                                    {{ company_details.phone_number }}
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <!-- Address -->
+                        <a href="https://www.google.com/maps/search/?api=1&query=SA1+Swansea" class="text-decoration-none" target="_blank" rel="noopener">
+                            <div class="d-flex justify-content-between align-items-center hover-lift hover-bg text-muted p-2 rounded">
+                                <span class="small text-muted">
+                                    <i class="fa-solid fa-location-dot me-2"></i>
+                                    {{ company_details.address }}
+                                </span>
+                                <span class="fw-semibold">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Contact Form -->
             <div class="col-12 col-lg-8">
@@ -37,7 +84,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock %}
