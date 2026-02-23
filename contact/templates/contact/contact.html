@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="h2 mb-4">Contact Us</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row g-4">
+
+            <!-- Contact Form -->
+            <div class="col-12 col-lg-8">
+                <div class="card p-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-start">
+                            <p class="h6 fw-semibold mb-1">Have a question?</p>
+                            <p class="text-muted small">Send us a message by filling out the form below</p>
+                        </div>
+                        <div class="mb-4"></div>
+                        <form action="{% url 'contact' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">{{ contact_form.full_name | as_crispy_field }}</div>
+                                <div class="col-md-6">{{ contact_form.email | as_crispy_field }}</div>
+                                <div class="col-md-6">{{ contact_form.phone_number | as_crispy_field }}</div>
+                                <div class="col-md-6">{{ contact_form.subject | as_crispy_field }}</div>
+                                <div class="col-12">{{ contact_form.message | as_crispy_field }}</div>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-primary hover-lift" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
