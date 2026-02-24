@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'contact',
+    'main',
 ]
 
 SITE_ID = 1
