@@ -17,7 +17,7 @@
 }
 
 .brand-name-secondary{
-    color: #6a82fb;
+    color: #652cff;
 }
 
 .navbar-custom .navbar-nav .nav-item .nav-link {
@@ -98,6 +98,39 @@
 
 .hover-bg:hover {
     background-color: #f8f9fa; /* light gray */
+}
+
+/* footer */
+
+.footer-custom {
+    background-color: rgba(227, 227, 227, 0.7);
+    backdrop-filter: blur(8px);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-image: linear-gradient(
+        90deg, 
+        #6a82fb,
+        #652cff
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 2px;
+}
+
+.footer-brand {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+.social-icon {
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+}
+
+.social-icon:hover {
+    scale: calc(1.1);
 }
 
 /* -------------- Account pages -------------- */
