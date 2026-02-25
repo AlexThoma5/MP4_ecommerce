@@ -1,3 +1,41 @@
+/* -------------- Base Template styles -------------- */
+
+/* Navbar */
+
+.navbar-custom {
+    background-color: rgba(217, 217, 217, 0.7);
+    backdrop-filter: blur(8px);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    }
+
+.brand-name{
+    font-size: 1.2rem;
+}
+
+.brand-name-secondary{
+    color: #6a82fb;
+}
+
+.navbar-custom .navbar-nav .nav-item .nav-link {
+    font-size: 0.8rem;
+}
+
+/* Navbar brand icon */
+
+.navbar-logo {
+    height: 36px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    scale: calc(1.1);
+}
+
 /* Navbar Bag Icon */
 .bag-icon {
     position: relative;
@@ -29,6 +67,7 @@
 }
 
 /* Hover styling */
+
 .hover-lift {
     transition: transform 0.2s ease;
 }

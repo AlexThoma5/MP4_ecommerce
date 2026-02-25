@@ -55,10 +55,18 @@
     </head>
     <body class="d-flex flex-column h-100">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-custom fixed-top bg-body-tertiary"
-             data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="{% url 'home' %}">Motion Lab</a>
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                    <img 
+                        src="{% static 'images/motion-lab-logo.svg' %}" 
+                        alt="Motion Lab"
+                        class="navbar-logo me-2"
+                    >
+                    <span class="brand-name ms-2">Motion
+                        <span class="brand-name-secondary">Lab</span>
+                    </span>
+                </a>
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
