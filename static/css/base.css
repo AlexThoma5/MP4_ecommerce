@@ -158,7 +158,6 @@
 }
 
 /* Code taken from chatGPT */
-.card form input[type="text"],
 .card form input[type="email"],
 .card form input[type="password"] {
     display: block;
