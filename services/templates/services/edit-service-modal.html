@@ -34,14 +34,14 @@
                         <img id="image-preview"
                         src="{% static 'images/default_service.png' %}"
                         data-default-src="{% static 'images/default_service.png' %}"
-                        class="img-fluid rounded"
+                        class="img-fluid rounded img-preview"
                         alt="Service image preview">
                     </div>
                     {{ edit_service_form.featured_image|as_crispy_field }}
                     <!-- ChatGPT code to setup quill -->
                     <label id="description-label" class="form-label mt-3">Description*</label>
                     <div id="quill-editor" class="bg-white text-dark" aria-labelledby="description-label" role="textbox"></div>
-                    <input type="hidden" name="description" id="hidden-description" style="display: none;">
+                    <input type="hidden" name="edit-description" id="hidden-description" style="display: none;">
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">

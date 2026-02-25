@@ -9,3 +9,8 @@
 .card-header {
     z-index: 5 !important;
 }
+
+.img-preview {
+    max-height: 150px;
+    width: auto;
+}
