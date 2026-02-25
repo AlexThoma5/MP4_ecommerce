@@ -39,8 +39,8 @@
                         {% endfor %}
                     </div>
                     <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                        <button type="submit" name="action_primary" class="btn btn-primary">{% trans "Make Primary" %}</button>
-                        <button type="submit" name="action_send" class="btn btn-outline-primary">{% trans "Re-send Verification" %}</button>
+                        <button type="submit" name="action_primary" class="btn btn-custom">{% trans "Make Primary" %}</button>
+                        <button type="submit" name="action_send" class="btn btn-outline-custom">{% trans "Re-send Verification" %}</button>
                         <button type="submit" name="action_remove" class="btn btn-danger">{% trans "Remove" %}</button>
                     </div>
                 </form>
@@ -54,7 +54,7 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="text-center mt-3">
-                        <button type="submit" name="action_add" class="btn btn-primary">{% trans "Add Email" %}</button>
+                        <button type="submit" name="action_add" class="btn btn-custom">{% trans "Add Email" %}</button>
                     </div>
                 </form>
             {% endif %}

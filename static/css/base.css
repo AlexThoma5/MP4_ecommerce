@@ -1,4 +1,4 @@
-/* -------------- Base Template styles -------------- */
+/* -------------- Global styles -------------- */
 
 /* Navbar */
 
@@ -86,20 +86,6 @@
     height: auto;
 }
 
-/* Hover styling */
-
-.hover-lift {
-    transition: transform 0.2s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-2px);
-}
-
-.hover-bg:hover {
-    background-color: #f8f9fa; /* light gray */
-}
-
 /* footer */
 
 .footer-custom {
@@ -132,6 +118,53 @@
 .social-icon:hover {
     scale: calc(1.1);
 }
+
+/* Custom buttons */
+
+.btn-custom {
+    background-color: #652cff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active {
+    background-color: #4a09fc;
+    color: rgb(243, 243, 243);
+}
+
+.btn-outline-custom {
+    background-color: #ffffff;
+    border: 2px solid #652cff;
+    color: #652cff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus,
+.btn-outline-custom:active {
+    background-color: #652cff;
+    border: 2px solid #652cff;
+    color: rgb(255, 255, 255);
+}
+
+/* Hover Animations */
+
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover,
+.hover-lift:focus,
+.hover-lift:active {
+    transform: translateY(-2px);
+}
+
+.hover-bg:hover {
+    background-color: #f8f9fa; /* light gray */
+}
+
 
 /* -------------- Account pages -------------- */
 
