@@ -36,6 +36,26 @@
     scale: calc(1.1);
 }
 
+/* Nav-link styling */
+
+.nav-link {
+    padding-bottom: 4px;
+    background-image: linear-gradient(
+        90deg, 
+        #ff5f6d,
+        #ffc371,
+        #6a82fb
+    );
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: 0% 100%;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover{
+    background-size: 100% 2px;
+}
+
 /* Navbar Bag Icon */
 .bag-icon {
     position: relative;
