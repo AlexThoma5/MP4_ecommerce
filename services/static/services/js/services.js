@@ -1,15 +1,15 @@
 /* jshint esversion: 11 */
 
-// Edit functionality setup
-const editButtons = document.getElementsByClassName("btn-edit");
-const editServiceForm = document.getElementById("editServiceForm");
+// Modal and Form variables
+const serviceForm = document.getElementById("serviceForm");
+const modalEl = document.getElementById("serviceModal");
+const newModal = new bootstrap.Modal(modalEl);
+const modalTitle = document.getElementById("serviceModalLabel");
 const hiddenDescriptionInput = document.getElementById("hidden-description");
-const modalEl = document.getElementById("editServiceModal");
-const newEditModal = new bootstrap.Modal(modalEl);
+const submitBtn = document.getElementById("submitButton");
 
-// Delete functionality setup
+// Separate delete modal
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
 
 // Quill initilisation, help from chatGPT on setup
 const quill = new Quill("#quill-editor", {
@@ -20,96 +20,129 @@ const quill = new Quill("#quill-editor", {
 });
 
 /**
- * Initialises edit functionality for the provided edit buttons.
+ * Delegates click events for buttons with `data-btn-modal`.
  *
- * For each button in the `editButtons` collection:
- * - Retrieves the associated service's data attributes upon click.
- * - Prefills the modal input fields and Quill editor with current service data.
- * - Updates the form's action URL for the specific service.
- * - Shows the modal for editing.
+ * - Determines which action to take based on `data-btn-modal` attribute.
+ * - Calls `prepareAddModal`, `prepareEditModal`, or `prepareDeleteModal`.
  */
+document.addEventListener("click", function (e) {
+    const button = e.target.closest("[data-btn-modal]");
+    if (!button) return;
 
-for (let button of editButtons) {
-  button.addEventListener("click", (e) => {
-    let serviceId = e.currentTarget.getAttribute("data-service_id");
-    let serviceType = e.currentTarget.getAttribute("data-service_type");
-    let serviceName = e.currentTarget.getAttribute("data-service_name");
-    let serviceDesc = e.currentTarget.getAttribute("data-service_desc");
-    let servicePrice = e.currentTarget.getAttribute("data-service_price");
-    let serviceDuration = e.currentTarget.getAttribute("data-service_duration");
-    let serviceSessions = e.currentTarget.getAttribute("data-service_sessions");
-    let imageUrl = e.currentTarget.getAttribute("data-image-url");
-    let previewImage = document.getElementById("image-preview");
+    const modalAction = button.dataset.btnModal;
 
-    // Prefill modal input fields
-    modalEl.querySelector("#id_edit-service_type").value = serviceType;
-    modalEl.querySelector("#id_edit-name").value = serviceName;
-    modalEl.querySelector("#id_edit-price").value = servicePrice;
-    modalEl.querySelector("#id_edit-duration").value = serviceDuration;
-    modalEl.querySelector("#id_edit-session_count").value = serviceSessions;
+    switch (modalAction) {
+        case "add":
+            prepareAddModal();
+            break;
 
-    // Always reset to default src which is static image
-    previewImage.src = previewImage.dataset.defaultSrc;
-    // Injects cloudinary url if its not placeholder
-    if (imageUrl && !imageUrl.includes("placeholder")) {
-      previewImage.src = imageUrl;
+        case "edit":
+            prepareEditModal(button);
+            break;
+
+        case "delete":
+            prepareDeleteModal(button);
+            break;
+
+        default:
+            console.warn("Unknown modal action:", modalAction);
     }
+});
 
-    // Fill Quill editor field
-    quill.root.innerHTML = serviceDesc;
+/**
+ * Prepares the Add Service modal.
+ *
+ * - Resets the form and Quill editor.
+ * - Resets the image preview to the default.
+ * - Updates modal title and submit button text.
+ * - Updates form action to "add/".
+ * - Displays the modal.
+ */
+function prepareAddModal() {
+    serviceForm.reset();
+    quill.root.innerHTML = "";
 
-    // Update form action via serviceID
-    editServiceForm.setAttribute("action", `edit/${serviceId}/`);
+    document.getElementById("image-label").textContent = "Default image:";
+    const previewImage = document.getElementById("image-preview");
+    previewImage.src = previewImage.dataset.defaultSrc;
 
-    // Show modal with content
-    newEditModal.show();
-  });
+    modalTitle.textContent = "Add Service";
+    submitBtn.textContent = "Save";
+    serviceForm.setAttribute("action", "add/");
+    newModal.show();
 }
 
 /**
- * Handles form submission for the edit service modal.
+ * Prepares the Edit Service modal for a specific service.
  *
- * Before the form is submitted:
- * - Retrieves the current HTML content from the Quill editor.
- * - Strips invisible or empty content to prevent blank descriptions.
- * - Copies valid editor content into the hidden description input field.
- * - Ensures the backend receives clean, meaningful data for validation.
- * - (Help provided by chatGPT)
+ * - Prefills modal input fields using the button's dataset.
+ * - Fills Quill editor with the service description.
+ * - Updates the image preview (existing or default).
+ * - Updates modal title and submit button text.
+ * - Updates form action for the specific service ID.
+ * - Displays the modal.
  */
-editServiceForm.addEventListener("submit", function () {
-  let content = quill.root.innerHTML;
+function prepareEditModal(button) {
+    const serviceId = button.dataset.service_id;
 
-  // Remove invisible tags or empty content
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = content;
-  if (tempDiv.textContent.trim() === "") {
-    // Treat as empty if no visible text
-    hiddenDescriptionInput.value = "";
-  } else {
-    hiddenDescriptionInput.value = content;
-  }
-});
+    // Prefill modal input fields
+    modalEl.querySelector("#id_service_type").value = button.dataset.service_type;
+    modalEl.querySelector("#id_name").value = button.dataset.service_name;
+    modalEl.querySelector("#id_price").value = button.dataset.service_price;
+    modalEl.querySelector("#id_duration").value = button.dataset.service_duration;
+    modalEl.querySelector("#id_session_count").value = button.dataset.service_sessions;
 
-// DELETE MODAL LOGIC BELOW
+    // Fill Quill editor field
+    quill.root.innerHTML = button.dataset.service_desc;
+
+    // Image preview logic
+    const imageUrl = button.dataset.imageUrl;
+    const previewImage = document.getElementById("image-preview");
+    // Reset image back to default src
+    previewImage.src = previewImage.dataset.defaultSrc;
+    // Injects cloudinary url if its not placeholder
+    if (imageUrl && !imageUrl.includes("placeholder")) {
+        previewImage.src = imageUrl;
+    }
+
+    document.getElementById("image-label").textContent = "Current image:";
+    modalTitle.textContent = "Edit Service";
+    submitBtn.textContent = "Update";
+    serviceForm.setAttribute("action", `edit/${serviceId}/`);
+    newModal.show();
+}
 
 /**
- * Initializes deletion functionality for the provided delete buttons.
+ * Handles form submission for the Add/Edit service modal.
  *
- * For each button in the `deleteButtons` collection:
- * - Retrieves the associated service’s ID and name when clicked.
- * - Updates the confirmation modal’s service name display (`service-name`).
- * - Sets the `deleteConfirm` link's href to the delete URL for that service.
- * - Displays the confirmation modal (`deleteModal`) to prompt the user
- *   for confirmation before deletion.
+ * - Retrieves HTML content from the Quill editor.
+ * - Strips invisible or empty content to prevent blank descriptions.
+ * - Copies valid editor content into the hidden description input field.
  */
-for (let button of deleteButtons) {
-  button.addEventListener("click", (e) => {
-    let serviceId = e.currentTarget.getAttribute("data-service_id");
-    let serviceName = e.currentTarget.getAttribute("data-service_name");
-    const deleteConfirm = document.getElementById("deleteConfirm");
-    const deleteName = document.getElementById("service-name");
-    deleteName.innerText = serviceName
-    deleteConfirm.href = `delete/${serviceId}`;
+serviceForm.addEventListener("submit", function () {
+    const textContent = quill.root.innerHTML.trim();
+
+    // Remove invisible tags caused by quill
+    if (textContent === "<p><br></p>") {
+        hiddenDescriptionInput.value = "";
+    } else {
+        hiddenDescriptionInput.value = textContent;
+    }
+});
+
+/**
+ * Prepares the Delete Service modal.
+ *
+ * - Sets the service name in the confirmation modal.
+ * - Updates the delete confirmation link.
+ * - Displays the delete modal.
+ */
+function prepareDeleteModal(button) {
+    const serviceId = button.dataset.service_id;
+    const serviceName = button.dataset.service_name;
+
+    document.getElementById("service-name").innerText = serviceName;
+    document.getElementById("deleteConfirm").href = `delete/${serviceId}`;
+
     deleteModal.show();
-  });
 }
