@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 document.addEventListener('DOMContentLoaded', function () {
     const toastElList = document.querySelectorAll('.toast');
 
