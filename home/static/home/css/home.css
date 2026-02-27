@@ -29,6 +29,10 @@
     width: 100%;
 }
 
+#slogan {
+    color: #652cff;
+}
+
 /* Why chose us section */
 .feature-icon {
     height: 76px;
