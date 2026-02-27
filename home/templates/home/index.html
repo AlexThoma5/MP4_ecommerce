@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
 {% block content %}
     <!-- Header-->
     <header class="p-4 bg-light">
@@ -7,19 +10,90 @@
             <div class="row">
                 <!-- Text column -->
                 <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-start">
-                    <h1 class="mb-3"><span class="d-block display-4 fw-semibold">Move Better,</span>
-                        <span class="d-block display-4 fw-semibold">Live Better</span></h1>
-                    <p class="text-muted mb-4">Expert physiotherapy care tailored to your recovery journey. Get back to doing what you love with personalised treatment plans.</p>
+                    <h1 class="mb-3">
+                        <span class="d-block display-4 fw-semibold">Move Better,</span>
+                        <span class="d-block display-4 fw-semibold">Live Better</span>
+                    </h1>
+                    <p class="text-muted mb-4">
+                        Expert physiotherapy care tailored to your recovery journey. Get back to doing what you love with personalised treatment plans.
+                    </p>
                     <a href="{% url 'services' %}" class="btn btn-lg btn-custom hover-lift">View Services</a>
                 </div>
                 <!-- Image column -->
                 <div class="col-12 col-lg-6 text-center">
                     <!-- Temporary image holder -->
-                    <div class="bg-dark d-flex align-items-center justify-content-center" style="height: 300px;">
-                    <span class="text-light">Physiotherapy Session Image</span>
+                    <div class="bg-dark d-flex align-items-center justify-content-center"
+                         style="height: 300px">
+                        <span class="text-light">Physiotherapy Session Image</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-{% endblock %}
+    <!-- Why chose us section -->
+    <section class="py-5 mt-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 mb-4">
+                    <h2 class="text-center section-title">Why Choose Motion Lab</h2>
+                </div>
+                <!-- card 1 -->
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="feature-icon d-flex align-items-center justify-content-center ms-1 me-4">
+                                <i class="fa-solid fa-ranking-star"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-1">Certified Experts</h3>
+                                <p class="mb-0 text-muted">Licensed physiotherapists with 10+ years of experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 2-->
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="feature-icon d-flex align-items-center justify-content-center ms-1 me-4">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-1">Proven Results</h3>
+                                <p class="mb-0 text-muted">95% patient satisfaction and positive outcomes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="feature-icon d-flex align-items-center justify-content-center ms-1 me-4">
+                                <i class="fa-solid fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-1">Flexible Scheduling</h3>
+                                <p class="mb-0 text-muted">Book appointments that fit your busy lifestyle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="feature-icon d-flex align-items-center justify-content-center ms-1 me-4">
+                                <i class="fa-solid fa-medal"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-1">Award Winners</h3>
+                                <p class="mb-0 text-muted">Voted Swansea’s Best Physiotherapy Clinic 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}

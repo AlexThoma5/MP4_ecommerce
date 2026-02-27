@@ -1,0 +1,57 @@
+/* Why chose us section */
+
+.section-title {
+    text-decoration: #6366f1 underline 2px;
+    text-underline-offset: 10px;
+}
+
+.feature-icon {
+    height: 76px;
+    width: 76px;
+    font-size: 28px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    background-color: #0f172a;
+}
+
+.fa-ranking-star {
+    color: #ff5f6d;
+}
+.fa-star {
+    color: #2f8f9d;
+}
+
+.fa-calendar {
+    color: #6a82fb;
+}
+
+.fa-medal {
+    color: #ffc371;
+}
+
+.card {
+    background-color: #f8fafc;
+    border-radius: 2px;
+    border: 1px solid #e5e7eb;
+}
+
+.card:hover {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+    border-color: #c7d2fe;
+}
+
+/* -------------- Media Queries -------------- */
+
+/* lg devices for (larger desktops, 1200px and up) */
+
+@media screen and (min-width: 1200px) {
+  /* Changes size of icon on larger screens */
+    .feature-icon {
+    height: 70px;
+    width: 70px;
+    font-size: 30px;
+    border-radius: 2px;
+    }
+}
