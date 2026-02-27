@@ -13,7 +13,7 @@
 }
 
 .section-title {
-    text-decoration: #6366f1 underline 2px;
+    text-decoration: #652cff underline 2px;
     text-underline-offset: 10px;
 }
 
@@ -60,9 +60,86 @@
     color: #ffd061;
 }
 
+/* CTA section */
+.cta-section {
+    padding: 4rem 0;
+    background-color: #1F2937;
+    color: #FFFFFF;
+}
+
+.cta-section h2 {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.cta-section p {
+    color: #D1D5DB;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: #187db4;
+    width: 60%;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 2px;
+    border: 1px solid #0EA5E9;
+    box-shadow: 0 0 12px rgba(14, 164, 233, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active {
+    background-color: #0EA5E9;
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.7);
+    transform: translateY(-2px);
+}
+
+.cta-outline-button {
+    background-color: transparent;
+    width: 60%;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 2px;
+    border: 1px solid #0EA5E9;
+    box-shadow: 0 0 12px rgba(14, 164, 233, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.cta-outline-button:hover,
+.cta-outline-button:focus,
+.cta-outline-button:active {
+    background-color: #0EA5E9 !important;
+    box-shadow: 0 0 12px rgba(14, 164, 233, 0.4);
+    transform: translateY(-2px);
+}
 /* -------------- Media Queries -------------- */
 
-/* lg devices for (larger desktops, 1200px and up) */
+/* md devices for (medium screens, 768px and up) */
+
+@media screen and (min-width: 768px) {
+  /* Changes size of cta buttons on medium screens */
+    .cta-button,
+    .cta-outline-button {
+        width: 25%;
+    }
+}
+
+/* lg devices for (large screens, 992px and up) */
+
+@media screen and (min-width: 992px) {
+
+    /* Changes size of cta buttons on medium screens */
+    .cta-button,
+    .cta-outline-button {
+        width: 18%;
+    }
+}
+
+/* xl devices for (larger desktops, 1200px and up) */
 
 @media screen and (min-width: 1200px) {
   /* Changes size of icon on larger screens */
@@ -71,5 +148,11 @@
     width: 70px;
     font-size: 30px;
     border-radius: 2px;
+    }
+
+    /* Changes size of cta buttons on medium screens */
+    .cta-button,
+    .cta-outline-button {
+        width: 13%;
     }
 }

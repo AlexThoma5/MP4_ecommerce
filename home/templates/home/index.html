@@ -17,7 +17,7 @@
                     <p class="text-muted mb-4">
                         Expert physiotherapy care tailored to your recovery journey. Get back to doing what you love with personalised treatment plans.
                     </p>
-                    <a href="{% url 'services' %}" class="btn btn-lg btn-custom hover-lift">View Services</a>
+                    <a href="{% url 'services' %}" class="btn btn-lg btn-custom hover-lift cta-hover">View Services</a>
                 </div>
                 <!-- Image column -->
                 <div class="col-12 col-lg-6 text-center">
@@ -163,6 +163,21 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mb-2">Ready to start your recovery?</h2>
+                    <p>Purchase an assessment today and take the first step towards pain-free living.</p>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
+                    <a href="{% url 'services' %}" class="btn cta-button">View Services</a>
+                    <a href="{% url 'contact' %}" class="btn cta-outline-button">Contact Us</a>
                 </div>
             </div>
         </div>
