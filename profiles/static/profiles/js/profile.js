@@ -1,6 +1,6 @@
 /* jshint esversion: 11 */
 
-const form = document.getElementById("editContactDetailsForm")
+const form = document.getElementById("editContactDetailsForm");
 
 /**
  * Adds submission feedback to the Edit Contact Details form.
