@@ -1,10 +1,23 @@
-/* Why chose us section */
+/* Home page styles */
+
+.light-bg {
+    background-color: #FDFDFD;
+}
+
+.secondary-bg {
+    background-color: #F4F6F8;
+}
+.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
 .section-title {
     text-decoration: #6366f1 underline 2px;
     text-underline-offset: 10px;
 }
 
+/* Why chose us section */
 .feature-icon {
     height: 76px;
     width: 76px;
@@ -40,6 +53,11 @@
     transform: translateY(-2px);
     transition: all 0.2s ease;
     border-color: #c7d2fe;
+}
+
+/* Testimonial section */
+.fa-star.review-star {
+    color: #ffd061;
 }
 
 /* -------------- Media Queries -------------- */

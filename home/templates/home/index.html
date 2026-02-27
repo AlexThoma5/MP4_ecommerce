@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <!-- Header-->
-    <header class="p-4 bg-light">
+    <header class="p-4 light-bg">
         <div class="container">
             <div class="row">
                 <!-- Text column -->
@@ -31,7 +31,7 @@
         </div>
     </header>
     <!-- Why chose us section -->
-    <section class="py-5 mt-4">
+    <section class="section secondary-bg">
         <div class="container">
             <div class="row g-4">
                 <div class="col-12 mb-4">
@@ -96,4 +96,75 @@
             </div>
         </div>
     </section>
-    {% endblock %}
+    <!-- Testimonial Section -->
+    <section class="section light-bg">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 mb-4">
+                    <h2 class="text-center section-title">What Our Patients Say</h2>
+                </div>
+                <!-- Testimonial 1 -->
+                <div class="col-12 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-2">Kaira Davies</h3>
+                            <!-- Stars -->
+                            <div class="mb-3">
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                            </div>
+                            <p class="mb-0 text-muted">
+                                "The team at Motion Lab helped me recover faster than I expected.
+                                Professional, friendly, and genuinely caring."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-12 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-2">Emily Chen</h3>
+                            <!-- Stars -->
+                            <div class="mb-3">
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                            </div>
+                            <p class="mb-0 text-muted">
+                                "Excellent service from start to finish. The treatment
+                                package was worth every penny."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="col-12 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-2">James Redmond</h3>
+                            <!-- Stars -->
+                            <div class="mb-3">
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                                <i class="fa-solid fa-star review-star"></i>
+                            </div>
+                            <p class="mb-0 text-muted">
+                                “Brilliant experience overall. The staff are welcoming
+                                and clearly very experienced. I felt confident in my recovery
+                                plan and saw real improvement within weeks.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
