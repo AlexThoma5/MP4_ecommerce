@@ -1,4 +1,4 @@
-/* Home page styles */
+/* Home page general styles */
 
 .light-bg {
     background-color: #FDFDFD;
@@ -15,6 +15,18 @@
 .section-title {
     text-decoration: #652cff underline 2px;
     text-underline-offset: 10px;
+}
+
+/* Header section */
+
+.img-container {
+    height: 300px;
+}
+
+.img-container > img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 /* Why chose us section */
