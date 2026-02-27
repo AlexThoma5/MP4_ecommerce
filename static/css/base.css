@@ -1,5 +1,8 @@
 /* -------------- Global styles -------------- */
 
+body {
+    background-color: #F9FAFB;
+}
 /* Navbar */
 
 .navbar-custom {
