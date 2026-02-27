@@ -7,39 +7,19 @@ Developer: Alex Thomas ([AlexThoma5](https://www.github.com/AlexThoma5))
 [![GitHub repo size](https://img.shields.io/github/repo-size/AlexThoma5/MP4_ecommerce)](https://www.github.com/AlexThoma5/MP4_ecommerce)
 [![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://mp4-ecommerce-390faaa8fcde.herokuapp.com)
 
-⚠️ PROJECT INTRODUCTION AND RATIONALE⚠️
+For my Milestone Project 4, I decided to build an e-commerce store based around a business called Motion Lab. Motion Lab is a fictional physiotherapy business that is aiming to sell its services to the local community and drive traffic to its business through this modern, intuitive, responsive website.
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience. Also, assessors lately have been asking that students explain "why" they opted to do a project about this particular topic/subject, so be sure to explain what made you choose this particular theme/concept/subject/idea. This is the project "rationale".
+The goal of the project is primarily to advertise services and provide users with a seamless purchasing experience. Customers can browse available physiotherapy services, interact with a fully functional store, and securely purchase the services they require.
 
-⚠️ --- END --- ⚠️
+Site administrators have full control over company details and service listings, with full CRUD functionality implemented on the front end for superusers. This ensures complete ownership and flexibility in managing the business content.
 
-🛑 README NOTES 🛑
-
-Do not add a **Table of Contents** to your Markdown files. GitHub has these built-in automatically using the headers/hashtags.
-
-Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
-
-Learn about Markdown Alerts (aka Callouts), a fairly new feature for GitHub Markdown files.
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
-Note: these are not visible within your README Previewer, and are only visible once you push the code to GitHub.
-
-**Site Mockups**
-*([amiresponsive](https://ui.dev/amiresponsive?url=https://mp4-ecommerce-390faaa8fcde.herokuapp.com), [techsini](https://techsini.com/multi-mockup), etc.)*
-Having issues generating site mockups? This is likely due to security policies with your deployed site.
-If you open up your DevTools, there may be an error referencing `X-Frame-Options`.
-
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser. Once installed, navigate back to the mockup site of your choice. You should find your site rendering in the various devices now.
-
-Alternatively, open your project in Gitpod and run the server. Once the site is running, click the `Ports` tab from your Gitpod Terminal. Click the padlock on the appropriate port for your project (`Flask: 5000`, `Django: 8000`). This will make your local page public temporarily. Now, copy the URL of your live-preview page into the responsive tool above. You should find your site rendering in the various devices.
-
-🛑 --- END ---- 🛑
+I chose to develop Motion Lab for my MS4 project because my partner is an NHS physiotherapist. It gave me the ability to simulate a real-world client–developer scenario, treating the project as if I were building a live commercial product for an actual business. Approaching the project in this way helped me design a more purposeful and industry-specific application. It also gave me valuable experience not only in building a complex e-commerce system, but in delivering a tailored solution for a specific professional sector.
 
 ![screenshot](documentation/mockup.png)
 
 source: [MP4_ecommerce amiresponsive](https://ui.dev/amiresponsive?url=https://mp4-ecommerce-390faaa8fcde.herokuapp.com)
 
-> [!IMPORTANT]  
-> The examples in these templates are strongly influenced by the Code Institute walkthrough project called "Boutique Ado".
+Live site can be found [here](https://mp4-ecommerce-390faaa8fcde.herokuapp.com).
 
 ## UX
 
