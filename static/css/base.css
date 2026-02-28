@@ -1,8 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,100..900&display=swap");
+/* Google font imports */
+
+/* CSS Variables */
+:root {
+    /* fonts */
+    --primary-font: "Roboto", sans-serif;
+    --secondary-font:
+        -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+
 /* -------------- Global styles -------------- */
 
-body {
-    background-color: #F9FAFB;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--secondary-font);
+    line-height: 1.2;
 }
+
+body {
+    font-family: var(--primary-font);
+    background-color: #f9fafb;
+}
+
 /* Navbar */
 
 .navbar-custom {
@@ -13,13 +37,14 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.15rem;
-    }
+    font-family: var(--secondary-font);
+}
 
-.brand-name{
+.brand-name {
     font-size: 1.2rem;
 }
 
-.brand-name-secondary{
+.brand-name-secondary {
     color: #652cff;
 }
 
@@ -43,19 +68,14 @@ body {
 
 .nav-link {
     padding-bottom: 4px;
-    background-image: linear-gradient(
-        90deg, 
-        #ff5f6d,
-        #ffc371,
-        #6a82fb
-    );
+    background-image: linear-gradient(90deg, #ff5f6d, #ffc371, #6a82fb);
     background-repeat: no-repeat;
     background-size: 0% 2px;
     background-position: 0% 100%;
     transition: all 0.3s ease;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     background-size: 100% 2px;
 }
 
@@ -97,11 +117,7 @@ body {
     text-transform: uppercase;
     font-size: 0.9rem;
     font-weight: 700;
-    background-image: linear-gradient(
-        90deg, 
-        #6a82fb,
-        #652cff
-    );
+    background-image: linear-gradient(90deg, #6a82fb, #652cff);
     background-repeat: no-repeat;
     background-size: 100% 2px;
 }
@@ -167,7 +183,7 @@ body {
 }
 
 .hover-bg:hover {
-    background-color: #f8f9fa; /* light gray */
+    background-color: #f8f9fa;
 }
 
 /* -------------- Account pages -------------- */
@@ -206,7 +222,7 @@ body {
     left: 0;
 }
 
-#hint_id_password > a{
+#hint_id_password>a {
     text-decoration: none;
     font-size: 0.9rem;
 }
