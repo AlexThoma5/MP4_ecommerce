@@ -130,50 +130,40 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/tablet-login.png) | ![screenshot](documentation/wireframes/desktop-login.png) |
 | Profile | ![screenshot](documentation/wireframes/mobile-profile.png) | ![screenshot](documentation/wireframes/tablet-profile.png) | ![screenshot](documentation/wireframes/desktop-profile.png) |
 | Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
-| Products | ![screenshot](documentation/wireframes/mobile-products.png) | ![screenshot](documentation/wireframes/tablet-products.png) | ![screenshot](documentation/wireframes/desktop-products.png) |
-| Product Details | ![screenshot](documentation/wireframes/mobile-product-details.png) | ![screenshot](documentation/wireframes/tablet-product-details.png) | ![screenshot](documentation/wireframes/desktop-product-details.png) |
+| Services | ![screenshot](documentation/wireframes/mobile-services.png) | ![screenshot](documentation/wireframes/tablet-services.png) | ![screenshot](documentation/wireframes/desktop-services.png) |
+| Service Details | ![screenshot](documentation/wireframes/mobile-services-details.png) | ![screenshot](documentation/wireframes/tablet-service-details.png) | ![screenshot](documentation/wireframes/desktop-service-details.png) |
 | Bag | ![screenshot](documentation/wireframes/mobile-bag.png) | ![screenshot](documentation/wireframes/tablet-bag.png) | ![screenshot](documentation/wireframes/desktop-bag.png) |
 | Checkout | ![screenshot](documentation/wireframes/mobile-checkout.png) | ![screenshot](documentation/wireframes/tablet-checkout.png) | ![screenshot](documentation/wireframes/desktop-checkout.png) |
 | Checkout Success | ![screenshot](documentation/wireframes/mobile-checkout-success.png) | ![screenshot](documentation/wireframes/tablet-checkout-success.png) | ![screenshot](documentation/wireframes/desktop-checkout-success.png) |
-| Add Product | ![screenshot](documentation/wireframes/mobile-add-product.png) | ![screenshot](documentation/wireframes/tablet-add-product.png) | ![screenshot](documentation/wireframes/desktop-add-product.png) |
-| Edit Product | ![screenshot](documentation/wireframes/mobile-edit-product.png) | ![screenshot](documentation/wireframes/tablet-edit-product.png) | ![screenshot](documentation/wireframes/desktop-edit-product.png) |
+| Add service | ![screenshot](documentation/wireframes/mobile-add-service.png) | ![screenshot](documentation/wireframes/tablet-add-service.png) | ![screenshot](documentation/wireframes/desktop-add-service.png) |
+| Edit Service | ![screenshot](documentation/wireframes/mobile-edit-service.png) | ![screenshot](documentation/wireframes/tablet-edit-service.png) | ![screenshot](documentation/wireframes/desktop-edit-service.png) |
 | Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.png) | ![screenshot](documentation/wireframes/tablet-newsletter.png) | ![screenshot](documentation/wireframes/desktop-newsletter.png) |
 | Contact | ![screenshot](documentation/wireframes/mobile-contact.png) | ![screenshot](documentation/wireframes/tablet-contact.png) | ![screenshot](documentation/wireframes/desktop-contact.png) |
 | 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
 
 ## User Stories
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a guest user | I would like to browse products without needing to register | so that I can shop freely before deciding to create an account. |
-| As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and track my order history. |
-| As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with any upcoming sales or promotions. |
-| As a customer | I would like to browse various product categories (clothing, toys, jewelry, kitchen gadgets, etc.) | so that I can easily find what I'm looking for. |
-| As a customer | I would like to sort products by price (low-to-high/high-to-low) and name (alphabetical) | so that I can quickly organize items in a way that suits my shopping style. |
-| As a customer | I would like to filter products by category | so that I can narrow down the products to the types I am most interested in. |
-| As a customer | I would like to click on individual products to view more details (description, price, image, etc.) | so that I can make an informed decision about my purchase. |
-| As a customer | I would like to add items to my shopping cart using quantity increment/decrement buttons | so that I can adjust how many units of a product I want before checkout. |
-| As a customer | I would like to view and manage my shopping cart | so that I can review, add, or remove items before proceeding to checkout. |
-| As a customer | I would like to adjust the quantity of items in my cart | so that I can modify my purchase preferences without leaving the cart. |
-| As a customer | I would like to remove items from my cart | so that I can remove products I no longer wish to buy. |
-| As a customer | I would like to proceed to checkout where I see my cart items, grand total, and input my name, email, shipping address, and card details | so that I can complete my purchase. |
-| As a customer | I would like to receive a confirmation email after my purchase | so that I can have a record of my transaction and order details. |
-| As a customer | I would like to see an order confirmation page with a checkout order number after completing my purchase | so that I know my order has been successfully placed. |
-| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident my payment information is protected. |
-| As a returning customer | I would like to be able to log in and view my past orders | so that I can track my previous purchases and order history. |
-| As a returning customer | I would like the checkout process to remember my shipping address | so that future purchases are quicker and easier. |
-| As a site owner | I would like to create new products with a name, description, price, images, and category | so that I can add additional items to the store inventory. |
-| As a site owner | I would like to update product details (name, price, description, image, category) at any time | so that I can keep my product listings accurate and up to date. |
-| As a site owner | I would like to delete products that are no longer available or relevant | so that I can maintain a clean and accurate inventory. |
-| As a site owner | I would like to view all orders placed on the website | so that I can track and manage customer purchases. |
-| As a site owner | I would like to manage product categories | so that I can ensure items are correctly organized and easy for customers to find. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| As a guest user | I would like to browse physiotherapy services without needing to register | so that I can explore available treatments before deciding to create an account. |
+| As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and access my service purchase history. |
+| As a customer | I would like to both in-person and virtual service options | so that I can have flexibility with my treatments. |
+| As a customer | I would like to click on an individual service to view more details (description, duration, price) | so that I can make an informed decision before purchasing. |
+| As a customer | I would like to view and manage my shopping cart | so that I can review my selected services before proceeding to checkout. |
+| As a customer | I would like to remove services from my cart | so that I can change my mind before completing payment. |
+| As a customer | I would like to proceed to checkout where I can see my selected services, total cost, and enter my personal and payment details | so that I can complete my purchase securely. |
+| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident that my payment information is protected. |
+| As a customer | I would like to receive a confirmation email after my purchase | so that I have a record of my transaction and service details. |
+| As a customer | I would like to see an order confirmation page with an order number after completing my purchase | so that I know my transaction was successful. |
+| As a returning customer | I would like to log in and view my past service purchases | so that I can keep track of my treatment history. |
+| As a returning customer | I would like my personal details to be remembered at checkout | so that future purchases are quicker and more convenient. |
+| As a site owner | I would like to create new physiotherapy services with a name, description, price, duration, images and service type | so that I can expand the services offered by the clinic. |
+| As a site owner | I would like to update service details (name, price, description, duration, image, service type) at any time | so that I can keep listings accurate and up to date. |
+| As a site owner | I would like to delete services that are no longer offered | so that I can maintain a clear and relevant service list. |
+| As a site owner | I would like to manage the clinic’s company details (e.g., address, email, opening hours, and phone number) | so that customers always have access to accurate and up-to-date information. |
+| As a site owner | I would like to view all customer orders | so that I can track and manage service purchases. |
+| As a site owner | I would like to offer promotional codes | so that customers are more likely to purchase services. |
+| As a user | I would like to see a custom 404 error page if I navigate to a non-existent page | so that I clearly understand the page cannot be found and can return to the site easily. |
 
 ## Features
 
