@@ -268,122 +268,99 @@ Want to add more?
 
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
 
-![screenshot](documentation/erd.png)
-
-⚠️ INSTRUCTIONS ⚠️
-
-Using your defined models, create an ERD with the relationships identified. A couple of recommendations for building your own free ERDs:
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-- [Draw.io](https://draw.io)
-
-Looking for an interactive version of your ERD? Consider using a [`Mermaid flowchart`](https://mermaid.live). To simplify the process, you can ask ChatGPT (or similar) the following prompt:
-
-> ChatGPT Prompt:  
-> "Generate a Markdown syntax Mermaid ERD using my Django models"  
-> [paste-your-django-models-into-ChatGPT]
-
-The "Boutique Ado" sample ERD in Markdown syntax using Mermaid can be seen below as an example.
-
-**NOTE**: A Markdown Preview tool doesn't show the interactive ERD; you must first commit/push the code to your GitHub repository in order to see it live in action.
-
-⚠️ --- END --- ⚠️
-
 I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
 erDiagram
-    User {
+
+    AUTH_USER {
         int id PK
-        varchar username
-        varchar email
-        varchar password
+        string username
+        string email
+        string password
+        boolean is_staff
+        boolean is_active
+        datetime date_joined
     }
 
-    UserProfile {
+    USER_PROFILE {
         int id PK
-        varchar default_phone_number
-        varchar default_street_address1
-        varchar default_street_address2
-        varchar default_town_or_city
-        varchar default_county
-        varchar default_postcode
-        varchar default_country
+        int user_id FK
+        string default_full_name
+        string default_phone_number
     }
 
-    User ||--|| UserProfile : has_one
-
-    Category {
+    SERVICE {
         int id PK
-        varchar name
-        varchar friendly_name
-    }
-
-    Product {
-        int id PK
-        varchar sku
-        varchar name
+        int service_type
+        string name
         text description
-        bool has_sizes
         decimal price
-        decimal rating
-        varchar image_url
-        image image
+        int duration
+        int session_count
+        string featured_image
     }
 
-    Product ||--o| Category : belongs_to
-
-    Order {
+    CONTACT_MESSAGE {
         int id PK
-        varchar order_number
-        varchar full_name
-        varchar email
-        varchar phone_number
-        varchar country
-        varchar postcode
-        varchar town_or_city
-        varchar street_address1
-        varchar street_address2
-        varchar county
+        string full_name
+        string email
+        string phone_number
+        int subject
+        text message
         datetime date
-        decimal delivery_cost
+        boolean read
+    }
+
+    COMPANY_DETAILS {
+        int id PK
+        string email
+        string phone_number
+        text address
+        datetime updated_on
+    }
+
+    ORDER {
+        int id PK
+        string order_number
+        int user_profile_id FK
+        string full_name
+        string email
+        string phone_number
+        datetime date
         decimal order_total
         decimal grand_total
         text original_bag
-        varchar stripe_pid
+        string stripe_pid
+        int discount_id FK
+        decimal discount_amount
     }
 
-    OrderLineItem {
+    ORDER_LINE_ITEM {
         int id PK
+        int order_id FK
+        int service_id FK
         int quantity
         decimal lineitem_total
-        varchar product_size
     }
 
-    Order ||--o| OrderLineItem : has_many
-    OrderLineItem ||--o| Product : belongs_to
-
-    Order ||--o| UserProfile : belongs_to
-
-    Newsletter {
+    DISCOUNT {
         int id PK
-        varchar email
+        string code
+        int percentage
+        boolean active
+        datetime created_on
     }
 
-    Contact {
-        int id PK
-        varchar name
-        varchar email
-        text message
-    }
-
-    FAQ {
-        int id PK
-        varchar question
-        text answer
-    }
+    %% Relationships
+    AUTH_USER ||--|| USER_PROFILE : has_one
+    USER_PROFILE ||--o{ ORDER : places
+    ORDER ||--o{ ORDER_LINE_ITEM : contains
+    SERVICE ||--o{ ORDER_LINE_ITEM : included_in
+    DISCOUNT ||--o{ ORDER : applied_to
 ```
 
-source: [Mermaid](https://mermaid.live/edit#pako:eNqVVcFu2zAM_RVD57RIHLdpfRs6DBg2bB2GXYYAhmIxjlBZcimqqdvk3yfbSVPHceP5kBh8TyRFPtKvLDUCWMwAP0ueIc_nOvDPHwsYvDbv1SM1BVIE998OpieO6Ypj4DxV8xy6CORcqq654NauDYoG2c71IeQ9mqVUMDCygCV3ipJiZTQk2uULwH6WJQSghAuBYO1kKDHsJ5JZ68Rgkkoq-1mpcfojvDCWqiac8YDliXoFm83FxWbTql0crLhNfEX2xDtOkBksB1b1dC-XKEELVSYH-C0TH1m4lAb6tw_uXFCCZ_K3tynKgqTRB2RhjKrvZ-UL2INdQCpzroICZQpdM3KSOuuG9WAGicN3Kq1NzW_PNauam82hrHGwAGV0Zr0g9tyfKAYPkKm4vfJdOqWS_5uvD8ehJabWsV4dfqzzs3N1dp6OJ0T4ypLMoX7pNlOAkk-ApZ8LS124KScZ4qoL-g2nxTFYy82gzKTmKlnw7OQdZAFJIY-3Vt3o71LDV4L8TMMr06Pjmlp13KemvBPpnRxn99afRn618k8lsddlO6NmG-Rcl6fy3R3ZK7tfyTtie890yT9gbRUQDdb-Owm_3ebOaOKD18mg0ag7nHv1daf6y6dfAyM9OrDtbVS75dqu94O2ZSOWA_rgwn9Ta7dzRivwKbLYvwqOD3M21xWPOzK_S52ymNDBiLmikvvuK8ziJVfWWwuuWfzKnlk8jSaXN9ez8HoyHc_C8TiajVjJ4ovp5XUUTqMovLqdXd2Et-FsO2Ivxngfk8vxZBpGkT_m_zxW-_tbY01QNC5b7YJt_wE0ZoQj)
+source: [Mermaid](https://mermaid.live/edit#pako:eNqtVW1v2jAQ_iuRpX6jVXkJL_mGIJ1QC1RAJ21Cskx8gDfHzhy7KqP89zmBAElAY9LyJfad7Xvu_DznLQokBeQhUH1GVoqEczEXjv2m_uTroOc72_00-ZjQDqPO63PeFIN6ZwFgvYng5Im1YmLlCBKeGTV8aIdCHCgWaSbFyUMhYCHhTqTsUfnzqVEkv3gfNY6tEQfSCF0KuwSijQKK7aGrw3m7LLU3mxt-nYyfBi-35Gdsgtjan55LYSgsieEaLw3nOJ9qYUW0lgKwMOECVAFObzyadXszPPSn0-6XvyHKErwaEULCeMlajn8spFn8gEAXLim05T1WLr0gokGzENLBybyQkgMRjgJCS3kNX7ujb7jvz7qDl-ltef0L-hQooVRZrBeAmigZUpwx5whsPOn7k9vgSEXt5V8qW8qKSMkl43CFHf_njq4UPhPMHqGWmvCy0wpa0KIzLZtUbMUE4XhBViUgyS8CHDFaUCKLU7kV883CHf0kPKkyX3b8Mhj5eDDzhzcob59bIdh5y7ng-mWI0Exvyug4E8A0hOf1OILrD6a98dtodhstkqaZXxeBCkDonGQybZBAs_dLUgqsai4y9O7OmQBPu168ZlF8oW99ft7fy-2By54TcRJAfM7v8wVnVfcseIuTiTjf568uZyLghiattFiqAgQSRZxBQjdUQSvFKPK0MlBBISjLdztFaXHnSK_BigJ5dkiJ-jlHc7GzeyIivksZZtuUNKs18paEx3a2V_PhkTpaidFyuhFBtscegbwt-kCe6z60Gi231u40Gx3XrXYqaIO8uvvQfnTbVbdZf2zWao1ac1dBv9Ogjw-deqvaaTWsq11v19y6hQDCMrCXkNnurTYqCCjTUg33j2b6du7-AP_pM7w)
 
 ⚠️ RECOMMENDED ⚠️
 
