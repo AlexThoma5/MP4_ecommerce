@@ -25,52 +25,63 @@ Live site can be found [here](https://mp4-ecommerce-390faaa8fcde.herokuapp.com).
 
 ### The 5 Planes of UX
 
-⚠️ NOTE: make sure to update the text below to match your own project! ⚠️
-
 #### 1. Strategy
 
 **Purpose**
-- Provide a seamless and intuitive e-commerce experience for customers to browse, filter, and purchase products.
-- Empower site owners to manage the store's inventory and customer orders efficiently.
+- Provide a seamless and intuitive e-commerce experience for customers to browse and purchase physiotherapy services
+or treatment packages.
+- Enable site administrators to efficiently manage service listings, pricing, company details and customer orders.
 
 **Primary User Needs**
-- Guest users need to browse products and checkout with ease.
-- Registered customers need a streamlined shopping experience with account and order history features.
-- Site owners need robust tools for inventory and order management.
+- Guest users need to browse available physiotherapy services, view descriptions and pricing, and complete purchases easily.
+- Registered users need a streamlined checkout experience, access to order history, and the ability to manage their accounts.
+- site owners need tools to manage service listings, update pricing, and monitor customer orders.
 
 **Business Goals**
-- Drive sales by providing a user-friendly shopping experience.
-- Build customer loyalty through personalized and efficient account features.
-- Maintain an organized and up-to-date store inventory.
+- Drive traffic and increase revenue by offering a clear and simple online purchasing experience for physiotherapy services.
+- Encourage repeat purchases through user accounts and order history tracking.
+- Maintain accurate and up-to-date service listings, pricing and company details.
 
 #### 2. Scope
 
 **[Features](#features)** (see below)
 
 **Content Requirements**
-- Product details, including name, price, description, category, and images.
-- Clear prompts and instructions for browsing, filtering, and purchasing.
-- Order details, confirmation pages, and email notifications.
+- Service details, including name, price, description, service type, duration, and images.
+- Clear navigation and calls-to-action to guide users through browsing and purchasing services.
+- A simple and intuitive checkout process.
+- Discount code functionality allowing users to apply promotional codes at checkout.
+- Order summary and confirmation pages.
+- Order history functionality for registered users.
+- Automated payment confirmation emails sent to customers.
 - Secure payment processing using Stripe.
-- Payment success emails sent to users.
-- 404 page for lost users.
+- Custom 404 page to guide lost users back to relevant pages.
 
 #### 3. Structure
 
 **Information Architecture**
 - **Navigation Menu**:
-  - Links to Home, Products, Cart, Newsletter, and Account sections.
+  - Links to Home, Services, Contact, Bag, and Account sections.
+  - Logged in users get additional Profile link.
 - **Hierarchy**:
-  - Prominent product categories and filters for easy navigation.
-  - Cart and checkout options displayed prominently for convenience.
+  - Landing Page: Introduces the clinic and builds trust through professional messaging, visuals, and highlighted sections such as “Why Choose Us” and “What Our Patients Say”. Prominent calls-to-action, like “View Services”, guide users toward purchasing physiotherapy services.
+  - Services Page: Displays all available physiotherapy services in a clear card-based layout. Each service card includes the service name, duration, truncated description, and pricing information to allow users to compare options quickly.
+  - Service Detail Page: Provides the full service description, duration, and pricing information, along with an “Add to Bag” button to enable users to proceed with their purchase.
+  - Cart & Checkout: Easily accessible from the navigation bar, allowing users to review their selected services, apply discount codes, and complete secure payment via Stripe.
+  - Account Area (Registered Users): Enables users to view order history and manage account details.
 
 **User Flow**
-1. Guest user browses the store → filters and sorts products by category, price, or name.
-2. Guest user adds items to the cart → proceeds to checkout.
-3. Guest user creates an account or logs in during checkout → completes purchase.
-4. Returning customers log in → view past orders and track purchase history.
-5. Site owners manage inventory → add, update, or delete products and categories.
-6. Users signup to the newsletter → potentially receive advanced notice of upcoming sales.
+1. Guest user browses the landing page → see an overview of the clinic and reasons to choose the service, and patient testimonials to build trust and credibility.
+2. Guest user clicks a clear call-to-action (“View Services”) → Is directed to the Services page.
+3. Guest browses available physiotherapy services → Views descriptions and pricing.
+4. Guest user selects a service → Navigates to the service detail page for more information.
+5. Guest adds service to bag → Reviews bag contents on bag page.
+6. Guest proceeds to checkout → Is prompted to log in or create an account if not already authenticated.
+7. User Applies a discount code (if applicable) → completes secure payment via Stripe.
+8. User is redirected to an order confirmation page → Receives a confirmation email with purchase details.
+9. Returning customers log in → View past orders and track purchase history within their account.
+10. Site administrators manage discount codes via the Django admin panel → Create and update discount codes.
+11. Site administrators manage services via the frontend services page → Create, update, and delete services directly on the site.
 
 #### 4. Skeleton
 
@@ -720,12 +731,6 @@ By forking the GitHub Repository, you make a copy of the original repository on 
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 ### Local VS Deployment
-
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site. Generally, there shouldn't be [m]any major differences, so if you honestly cannot find any differences, feel free to use the following example:
-
-⚠️ --- END --- ⚠️
 
 There are no remaining major differences between the local version when compared to the deployed version online.
 
