@@ -95,34 +95,23 @@ or treatment packages.
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
+The website uses a light, professional theme with splashes of colour used strategically to highlight buttons. Keeping the site colours modern, professional and highly readable was the core principle for this project, emulating what you would expect from a business in the health sector. This led me to use simple colours and shades for most of the site, while keeping the website attractive by implementing the brand colours for CTAs across the site.
 
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
-
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
-I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
+I used [coolors.co](https://coolors.co/000000-f9fafb-f4f6f8-652cff) to generate my color palette.
 
 - `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
+- `#652cff` primary highlights.
+- `rgba(33, 37, 41, 0.75)` Bootstraps muted text.
 
 ![screenshot](documentation/coolors.png)
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
+While maintaining a modern, Apple-esque aesthetic, I chose fonts that emphasise clarity, simplicity, and readability. My goal was to create a clean, professional look that reflects the nature of the business.
 
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
+- Headings and titles use a system font stack (-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif), ensuring San Francisco on Apple devices and appropriate native fonts on other platforms..
+- [Roboto](https://fonts.google.com/specimen/Roboto) was used for all other body text.
+- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer and category icons.
 
 ## Wireframes
 
