@@ -4,9 +4,12 @@
 {% block content %}
 <div class="container my-3">
 
-    <!-- Page header -->
-    <div class="text-center mb-5">
-        <h1 class="display-5 fw-semibold">{{ service.name }}</h1>
+    <!-- Page title -->
+    <div class="row">
+        <div class="col-12 pt-3">
+            <h1 class="h2 mb-2 text-center">{{ service.name }}</h1>
+            <hr>
+        </div>
     </div>
 
     <form method="post" action="{% url 'add_to_bag' service.id %}">
@@ -20,7 +23,8 @@
             <div class="col-12 col-md-8 order-2 order-md-1">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
-                        <h4 class="card-title mb-3">About this service</h4>
+                        <h2 class="h5 mb-3">About this service</h2>
+                        <hr>
                         <p class="card-text">
                             {{ service.description|safe }}
                         </p>
@@ -32,22 +36,34 @@
             <div class="col-12 col-md-4 order-1 order-md-2">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Service details</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><strong>Duration:</strong> {{ service.duration }} mins</li>
-                            <li><strong>Price:</strong> £{{ service.price }}</li>
-                        </ul>
+                        <h3 class="h5">Service details</h3>
+                        <hr>
+                        <!-- Session Count -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-muted">Sessions :</span>
+                            <span class="fw-semibold">{{ service.session_count }}</span>
+                        </div>
+                        <!-- Duration -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-muted">Duration :</span>
+                            <span class="fw-semibold">{{ service.duration }} mins</span>
+                        </div>
+                        <!-- Price -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-muted">Price :</span>
+                            <span class="fw-semibold">£{{ service.price }}</span>
+                        </div>
                     </div>
                 </div>
                 <!-- Desktop buttons -->
                 <div class="row g-2 d-none d-md-flex mt-3">
                     <div class="col-6 col-md-12 col-lg-6">
-                        <a href="{% url 'services' %}" class="btn btn-outline-secondary btn-lg w-100">
+                        <a href="{% url 'services' %}" class="btn btn-outline-custom btn-lg w-100 hover-lift">
                             Back
                         </a>
                     </div>
                     <div class="col-6 col-md-12 col-lg-6">
-                        <button type="submit" class="btn btn-custom btn-lg w-100">
+                        <button type="submit" class="btn btn-custom btn-lg w-100 hover-lift">
                             Add to Bag
                         </button>
                     </div>
