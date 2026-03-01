@@ -167,14 +167,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## Features
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, you should go over the different parts of your project, and describe each feature. You should explain what value each of the features provides for the user, focusing on your target audience, what they want to achieve, and how your project can help them achieve these things.
-
-**IMPORTANT**: Remember to always include a screenshot of each individual feature!
-
-⚠️ --- END --- ⚠️
-
 ### Existing Features
 
 | Feature | Notes | Screenshot |
@@ -182,49 +174,33 @@ In this section, you should go over the different parts of your project, and des
 | Register | Authentication is handled by allauth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
 | Login | Authentication is handled by allauth, allowing users to log in to their existing accounts. | ![screenshot](documentation/features/login.png) |
 | Logout | Authentication is handled by allauth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Product List | Users can browse all available products with sorting, filtering by categories, and search functionality. | ![screenshot](documentation/features/product-list.png) |
-| Product Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/product-details.png) |
-| Add to Bag | Users can add items to their shopping bag, with support for selecting different sizes if applicable. | ![screenshot](documentation/features/add-to-bag.png) |
-| View Bag | Users can view the contents of their shopping bag, adjust quantities, or remove items. | ![screenshot](documentation/features/view-bag.png) |
+| Service List | Users can view all available physiotherapy services presented in a clean card layout. Services are visually ordered by service type, with each card displaying pricing, session duration, and a short description to help users quickly compare options before viewing full details. | ![screenshot](documentation/features/service-list.png) |
+| Service Details | Displays detailed information about a selected service, including its name, full description, session count, duration and price. | ![screenshot](documentation/features/service-detail.png) |
+| Add to Bag | Users can add services to their shopping bag | ![screenshot](documentation/features/add-to-bag.png) |
+| View Bag | Users can view the contents of their shopping bag, and remove services | ![screenshot](documentation/features/view-bag.png) |
 | Checkout | Users can proceed to checkout, where they provide their delivery details and payment information using Stripe integration. | ![screenshot](documentation/features/checkout.png) |
 | Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/order-confirmation.png) |
 | Profile Management | Users can manage their profile information, including their default delivery address and order history. | ![screenshot](documentation/features/profile-management.png) |
 | Order History | Users can view their past orders and access details of each order, including products purchased and the delivery status. | ![screenshot](documentation/features/order-history.png) |
-| Product Management | Superusers can add, edit, and delete products from the site via a CRUD interface. | ![screenshot](documentation/features/product-management.png) |
-| Newsletter | Users can register their email address to receive newsletters from the site. Currently, this only stores the email in the database. | ![screenshot](documentation/features/newsletter.png) |
+| Service Management | Superusers can add, edit, and delete services from the site via a CRUD interface. | ![screenshot](documentation/features/service-management.png) |
+| Discounts | Users can apply discount codes in the bag page to save money at checkout.| ![screenshot](documentation/features/discount.png) |
 | Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database. | ![screenshot](documentation/features/contact.png) |
-| FAQs | Admins can manage frequently asked questions, which are displayed on the site for users. | ![screenshot](documentation/features/faqs.png) |
+| Company Details | Admins can manage company details easily in admin panel | ![screenshot](documentation/features/company-details.png) |
 | User Feedback | Clear and concise Django messages are used to provide feedback to users when interacting with various features (e.g., adding products to the bag, checking out, etc.). | ![screenshot](documentation/features/user-feedback.png) |
 | Heroku Deployment | The site is deployed to Heroku, making it accessible online for users. | ![screenshot](documentation/features/heroku.png) |
-| SEO | SEO optimization with a sitemap.xml, robots.txt, and appropriate meta tags to improve search engine visibility. | ![screenshot](documentation/features/seo.png) |
-| Marketing | Social media presence is available in the footer using external links, as well as a Facebook Marketplace wireframe in the README for future integrations. | ![screenshot](documentation/features/marketing.png) |
 | 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
 
 ### Future Features
 
-⚠️ INSTRUCTIONS ⚠️
-
-Do you have additional ideas that you'd like to include on your project in the future? Fantastic, list them here! It's always great to have plans for future improvements. Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-A few examples are listed below to align with possible ways to improve on the sample walkthrough project, to give you some inspiration.
-
-⚠️ --- END ---⚠️
-
-- **Product Reviews & Ratings**: Allow customers to leave reviews and rate products, with admin moderation. Display average ratings and review counts on product pages.
-- **Wishlist Functionality**: Enable users to save products to a personal wishlist for future purchases. Notify users if wishlist items go on sale or are back in stock.
-- **Product Recommendations**: Implement a "Customers who bought this also bought" or "You might also like" feature to suggest related products.
+- **Booking Dystem**: Integrate a functional booking system that allows users to select dates, times and which physiotherapist they want to see. The booking system would update dynamically to ensure that users have no overlapping appointments.
+- **Personal Injury Information**: Allow users secure access to their own private information about their injury.
+- **Profile – My Exercise Programme**: Customers can securely access personalised exercise videos provided by their physiotherapist, helping them follow structured rehabilitation programmes between clinic visits.
+- **Secure Patient Messaging**: Enable customers to message their physiotherapist securely through their account to ask follow-up questions about exercises or recovery.
+- **Progress Tracking Dashboard**: Allow patients to track recovery and log pain levels to help aid future physio sessions.
+- **Service Reviews & Ratings**: Allow customers to leave reviews and rate services, with admin moderation. Display average ratings and review counts on service pages.
 - **Live Chat Support**: Provide real-time customer support through an integrated live chat or chatbot.
 - **Abandoned Cart Recovery**: Automatically send emails to users who add items to their cart but don't complete the purchase, offering discounts or reminders.
-- **Discount Codes and Vouchers**: Allow the admin to create discount codes or vouchers for promotions and marketing campaigns.
-- **Loyalty Program**: Introduce a points-based loyalty system where customers earn points for purchases, which can be redeemed for discounts.
-- **Product Inventory Alerts**: Notify customers when out-of-stock items are back in stock, or when low inventory is approaching.
-- **Multi-Currency and Multi-Language Support**: Expand the application to support multiple currencies and languages to reach a global audience.
-- **Product Bundles**: Offer discounted product bundles (e.g., buy 3 for the price of 2) or custom product kits.
-- **Social Media Integration**: Enable users to share products directly to social media platforms or implement a social login for quick account creation.
-- **Shipping Tracking Integration**: Provide real-time shipping updates and tracking information directly within the user’s order history.
-- **Advanced Analytics Dashboard for Admin**: Offer an in-depth dashboard that displays sales trends, popular products, customer behavior, and more.
-- **Subscription-Based Products**: Allow users to subscribe to certain products (e.g., monthly deliveries of consumables like coffee or skincare products).
-- **Product Video Demos**: Support product videos to better showcase features, especially for high-tech or complex items.
+- **Advanced Analytics Dashboard for Admin**: Offer an in-depth dashboard that displays sales trends, popular services, customer behavior, and more.
 - **Mobile App**: Develop a mobile app for iOS and Android, providing users with a more optimized shopping experience on mobile devices.
 
 ## Tools & Technologies
@@ -361,36 +337,6 @@ erDiagram
 ```
 
 source: [Mermaid](https://mermaid.live/edit#pako:eNqtVW1v2jAQ_iuRpX6jVXkJL_mGIJ1QC1RAJ21Cskx8gDfHzhy7KqP89zmBAElAY9LyJfad7Xvu_DznLQokBeQhUH1GVoqEczEXjv2m_uTroOc72_00-ZjQDqPO63PeFIN6ZwFgvYng5Im1YmLlCBKeGTV8aIdCHCgWaSbFyUMhYCHhTqTsUfnzqVEkv3gfNY6tEQfSCF0KuwSijQKK7aGrw3m7LLU3mxt-nYyfBi-35Gdsgtjan55LYSgsieEaLw3nOJ9qYUW0lgKwMOECVAFObzyadXszPPSn0-6XvyHKErwaEULCeMlajn8spFn8gEAXLim05T1WLr0gokGzENLBybyQkgMRjgJCS3kNX7ujb7jvz7qDl-ltef0L-hQooVRZrBeAmigZUpwx5whsPOn7k9vgSEXt5V8qW8qKSMkl43CFHf_njq4UPhPMHqGWmvCy0wpa0KIzLZtUbMUE4XhBViUgyS8CHDFaUCKLU7kV883CHf0kPKkyX3b8Mhj5eDDzhzcob59bIdh5y7ng-mWI0Exvyug4E8A0hOf1OILrD6a98dtodhstkqaZXxeBCkDonGQybZBAs_dLUgqsai4y9O7OmQBPu168ZlF8oW99ft7fy-2By54TcRJAfM7v8wVnVfcseIuTiTjf568uZyLghiattFiqAgQSRZxBQjdUQSvFKPK0MlBBISjLdztFaXHnSK_BigJ5dkiJ-jlHc7GzeyIivksZZtuUNKs18paEx3a2V_PhkTpaidFyuhFBtscegbwt-kCe6z60Gi231u40Gx3XrXYqaIO8uvvQfnTbVbdZf2zWao1ac1dBv9Ogjw-deqvaaTWsq11v19y6hQDCMrCXkNnurTYqCCjTUg33j2b6du7-AP_pM7w)
-
-⚠️ RECOMMENDED ⚠️
-
-Alternatively, or in addition to, a more comprehensive ERD can be auto-generated once you're at the end of your development stages, just before you submit. Follow the steps below to obtain a thorough ERD that you can include. Feel free to leave the steps below in the README for future use to yourself.
-
-⚠️ --- END --- ⚠️
-
-I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
-
-The steps taken were as follows:
-- In the terminal: `sudo apt update`
-- then: `sudo apt-get install python3-dev graphviz libgraphviz-dev pkg-config`
-- then type `Y` to proceed
-- then: `pip3 install django-extensions pygraphviz`
-- in my `settings.py` file, I added the following to my `INSTALLED_APPS`:
-```python
-INSTALLED_APPS = [
-    ...
-    'django_extensions',
-    ...
-]
-```
-- back in the terminal: `python3 manage.py graph_models -a -o erd.png`
-- drag the new `erd.png` file into my `documentation/` folder
-- removed `'django_extensions',` from my `INSTALLED_APPS`
-- finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
-
-![screenshot](documentation/advanced-erd.png)
-
-source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
 ## Agile Development Process
 
