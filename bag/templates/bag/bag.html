@@ -2,12 +2,12 @@
 {% load static %}
 {% block content %}
     <div class="container my-3">
-        <div class="row g-4">
+        <div class="row g-4 pt-3">
             <!-- Shopping bag section -->
             {% if bag_items %}
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h4 class="mb-0">Your Shopping Bag</h4>
+                        <h1 class="h4 mb-0">Your Shopping Bag</h1>
                         <span class="text-muted">{{ service_count }} item{{ service_count|pluralize }}</span>
                     </div>
                     <hr>
@@ -27,7 +27,7 @@
                                     {% endif %}
                                 </div>
                                 <div class="col-8 col-md-4 order-1">
-                                    <h6 class="mb-1">{{ item.service.name }}</h6>
+                                    <p class="h6 mb-1 fw-normal fw-semibold">{{ item.service.name }}</p>
                                     <p class="text-muted mb-0">{{ item.service.duration }} mins</p>
                                 </div>
                                 <div class="col-4 col-md-2 order-2 order-md-3 text-end text-md-start align-self-start align-self-md-center">
@@ -54,7 +54,7 @@
                 <!-- Empty bag column -->
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h4 class="mb-0">Your Shopping Bag</h4>
+                        <h1 class="h4 mb-0">Your Shopping Bag</h1>
                         <span class="text-muted">No items</span>
                     </div>
                     <hr>
@@ -74,7 +74,7 @@
             <!-- Order Summary column -->
             <div class="col-lg-4">
                 <div class="card p-4 mt-lg-5">
-                    <h5>Order Summary</h5>
+                    <h2 class="h5">Order Summary</h2>
                     <hr>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Subtotal</span>
