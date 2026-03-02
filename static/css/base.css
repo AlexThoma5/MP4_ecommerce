@@ -31,7 +31,8 @@ body {
 
 .navbar-custom {
     background-color: rgba(217, 217, 217, 0.7);
-    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-transform: uppercase;
@@ -57,6 +58,8 @@ body {
 .navbar-logo {
     height: 36px;
     width: auto;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -68,10 +71,14 @@ body {
 
 .nav-link {
     padding-bottom: 4px;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff5f6d), color-stop(#ffc371), to(#6a82fb));
+    background-image: -o-linear-gradient(left, #ff5f6d, #ffc371, #6a82fb);
     background-image: linear-gradient(90deg, #ff5f6d, #ffc371, #6a82fb);
     background-repeat: no-repeat;
     background-size: 0% 2px;
     background-position: 0% 100%;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -99,9 +106,15 @@ body {
     border-radius: 50%;
     border: 1px solid white;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 /* Service Images */
@@ -114,10 +127,13 @@ body {
 
 .footer-custom {
     background-color: rgba(227, 227, 227, 0.7);
-    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     text-transform: uppercase;
     font-size: 0.9rem;
     font-weight: 700;
+    background-image: -webkit-gradient(linear, left top, right top, from(#6a82fb), to(#652cff));
+    background-image: -o-linear-gradient(left, #6a82fb, #652cff);
     background-image: linear-gradient(90deg, #6a82fb, #652cff);
     background-repeat: no-repeat;
     background-size: 100% 2px;
@@ -130,6 +146,8 @@ body {
 }
 
 .social-icon {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     font-size: 1rem;
     color: rgb(0, 0, 0);
@@ -145,6 +163,8 @@ body {
     background-color: #652cff;
     color: white;
     border: 1px solid #652cff ;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -160,6 +180,8 @@ body {
     background-color: transparent;
     border: 1px solid #652cff;
     color: #652cff;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -174,13 +196,19 @@ body {
 /* Hover Animations */
 
 .hover-lift {
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
     transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .hover-lift:hover,
 .hover-lift:focus,
 .hover-lift:active {
-    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+            transform: translateY(-2px);
 }
 
 .hover-bg:hover {
@@ -240,7 +268,8 @@ body {
     width: 1px !important;
     height: 1px !important;
     overflow: hidden !important;
-    clip-path: inset(50%);
+    -webkit-clip-path: inset(50%);
+            clip-path: inset(50%);
     white-space: nowrap !important;
 }
 
@@ -249,7 +278,8 @@ body {
 .card form input[type="password"] {
     display: block;
     width: 100%;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0.5rem 0.75rem;
     margin-bottom: 1rem;
     border-radius: 0.375rem;
