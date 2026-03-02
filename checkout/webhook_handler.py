@@ -32,9 +32,20 @@ class StripeWH_Handler:
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
+        has_discount = order.discount_amount
+        discount = ""
+        if has_discount > 0:
+            discount = (
+                f'\nDiscount: -£{order.discount_amount} '
+                f'({order.discount.code}) -{order.discount.percentage}%'
+            )
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {
+                'order': order, 'discount': discount,
+                'contact_email': settings.DEFAULT_FROM_EMAIL
+            }
+        )
         send_mail(
             subject,
             body,
