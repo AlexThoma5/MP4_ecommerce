@@ -20,10 +20,14 @@ def add_to_bag(request, item_id):
 
     if item_id not in bag:
         bag[item_id] = quantity
-        messages.success(request,
-                         f'<strong>{service.name}</strong><br>Added to your bag')
+        messages.success(
+            request, f'<strong>{service.name}</strong><br>Added to your bag'
+        )
     else:
-        messages.info(request, f'<strong>{service.name}</strong><br>Is already in your bag')
+        messages.info(
+            request,
+            f'<strong>{service.name}</strong><br>Is already in your bag'
+        )
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -36,7 +40,10 @@ def remove_from_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     bag.pop(item_id, None)
-    messages.success(request, f'<strong>{service.name}</strong><br>Has been removed from bag')
+    messages.success(
+        request,
+        f'<strong>{service.name}</strong><br>Has been removed from bag'
+    )
 
     request.session['bag'] = bag
 

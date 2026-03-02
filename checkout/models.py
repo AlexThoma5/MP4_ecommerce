@@ -29,9 +29,10 @@ class Discount(models.Model):
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True,
-                                     related_name="orders")
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name="orders"
+    )
     full_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     phone_number = models.CharField(max_length=20)
@@ -43,11 +44,13 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
-    discount = models.ForeignKey(Discount, null=True, blank=True,
-                                 on_delete=models.SET_NULL,
-                                 related_name='orders')
-    discount_amount = models.DecimalField(max_digits=6, decimal_places=2,
-                                          null=False, default=0)
+    discount = models.ForeignKey(
+        Discount, null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='orders'
+    )
+    discount_amount = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
+    )
 
     def _generate_order_number(self):
         """

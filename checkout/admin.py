@@ -10,15 +10,18 @@ class OrderLineItemAdminInline(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
-    readonly_fields = ('order_number', 'date',
-                       'order_total', 'grand_total',
-                       'original_bag', 'stripe_pid',
-                       'discount', 'discount_amount',)
+    readonly_fields = (
+        'order_number', 'date', 'order_total',
+        'grand_total', 'original_bag', 'stripe_pid',
+        'discount', 'discount_amount',
+    )
 
-    fields = ('order_number', 'user_profile', 'date',
-              'full_name', 'email', 'phone_number',
-              'discount', 'order_total', 'discount_amount',
-              'grand_total', 'original_bag', 'stripe_pid',)
+    fields = (
+        'order_number', 'user_profile', 'date',
+        'full_name', 'email', 'phone_number',
+        'discount', 'order_total', 'discount_amount',
+        'grand_total', 'original_bag', 'stripe_pid',
+        )
 
     list_display = ('order_number', 'date', 'full_name',
                     'order_total',
