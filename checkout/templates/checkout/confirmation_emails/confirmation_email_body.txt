@@ -22,7 +22,10 @@ Contact Details on File
 Email: {{ order.email }}
 Phone: {{ order.phone_number }}
 
-If any of your details are incorrect, or if you have any questions in the meantime, please contact us at {{ contact_email }}.
+If any of your details are incorrect, or if you have any questions in the meantime,
+please contact us at {{ contact_email }}.
+
+As a thank-you, you can use code SECRET on your next order to receive 15% off.
 
 We appreciate your trust in Motion Lab and look forward to supporting your recovery and performance goals.
 
