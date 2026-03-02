@@ -3,85 +3,29 @@
 > [!NOTE]  
 > Return back to the [README.md](README.md) file.
 
-⚠️ INSTRUCTIONS ⚠️
-
-In the following sections, you need to convince the assessors that you have conducted enough manual testing to legitimately believe that the site works well. Essentially, in this part, you should go over all of your project's features, and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-⚠️ --- END --- ⚠️
-
 ## Code Validation
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use the space below to discuss code validation for all of your own code files (*where applicable*). You are not required to validate external libraries/frameworks.
-
-**MANDATORY**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Where possible, always validate the live URL pages/files, not your local code using copy/paste. There could be subtle/hidden differences.
-
-⚠️ --- END --- ⚠️
-
 ### HTML
-
-⚠️ INSTRUCTIONS ⚠️
-
-1. [*recommended*] If you are using the live deployed site URLs, validate using this link: https://validator.w3.org/#validate_by_uri
-2. Otherwise, if you are copying/pasting your HTML code manually, use this link: https://validator.w3.org/#validate_by_input
-
-It's recommended to validate the live pages (all of them) using the deployed URL. This will give you a custom URL as well, which you can use below on your testing documentation. It makes it easier to return back to a page for validating it again in the future. The URL will look something like this:
-
-- https://validator.w3.org/nu/?doc=https://AlexThoma5.github.io/MP4_ecommerce/index.html
-
-⚠️ --- END --- ⚠️
-
-🛑 IMPORTANT 🛑
-
-RE: Python/Jinja syntax in HTML
-
-Python projects that use Jinja syntax, such as `{% for loops %}`, `{% url 'home' %}`, and `{{ variable|filter }}` will not validate properly if you're copying/pasting into the HTML validator.
-
-In order to properly validate these types of files, it's recommended to [validate by uri](https://validator.w3.org/#validate_by_uri) from the deployed Heroku pages.
-
-Unfortunately, pages that require a user to be "logged-in" and authenticated (CRUD functionality) will not work using this method, due to the fact that the HTML Validator (W3C) doesn't have access to login to an account on your project. In order to properly validate HTML pages with Jinja syntax for authenticated pages, follow these steps:
-
-- Navigate to the deployed pages which require authentication.
-- Right-click anywhere on the page, and select **View Page Source** (usually `CTRL+U` or `⌘+U` on Mac).
-- This will display the entire "compiled" code, without any Jinja syntax.
-- Copy everything, and use the [validate by input](https://validator.w3.org/#validate_by_input) method.
-- Repeat this process for every page that requires a user to be logged-in/authenticated (e.g.: CRUD functionality).
-
-🛑 ---- END --- 🛑
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| bag | [bag.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/templates/bag/bag.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-bag.png) | ⚠️ Notes (if applicable) |
-| bag | [bag_discount_form.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/templates/bag/bag_discount_form.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-bag_discount_form.png) | ⚠️ Notes (if applicable) |
-| checkout | [checkout.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/templates/checkout/checkout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-checkout-checkout.png) | ⚠️ Notes (if applicable) |
-| checkout | [checkout_success.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/templates/checkout/checkout_success.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-checkout-checkout_success.png) | ⚠️ Notes (if applicable) |
-| contact | [contact.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/templates/contact/contact.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-contact-contact.png) | ⚠️ Notes (if applicable) |
-| home | [index.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/templates/home/index.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-home-index.png) | ⚠️ Notes (if applicable) |
-| profiles | [edit-contact-modal.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/templates/profiles/edit-contact-modal.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-profiles-edit-contact-modal.png) | ⚠️ Notes (if applicable) |
-| profiles | [profile.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/templates/profiles/profile.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-profiles-profile.png) | ⚠️ Notes (if applicable) |
-| services | [delete-modal.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/delete-modal.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-services-delete-modal.png) | ⚠️ Notes (if applicable) |
-| services | [service-modal.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/service-modal.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-services-service-modal.png) | ⚠️ Notes (if applicable) |
-| services | [service_detail.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/service_detail.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-services-service_detail.png) | ⚠️ Notes (if applicable) |
-| services | [services.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/services.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-services-services.png) | ⚠️ Notes (if applicable) |
-| templates | [400.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/400.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-400.png) | ⚠️ Notes (if applicable) |
-| templates | [403.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/403.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-403.png) | ⚠️ Notes (if applicable) |
-| templates | [404.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/404.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-404.png) | ⚠️ Notes (if applicable) |
-| templates | [500.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/500.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-500.png) | ⚠️ Notes (if applicable) |
-| templates | [email_confirm.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/email_confirm.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-email_confirm.png) | ⚠️ Notes (if applicable) |
-| templates | [login.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/login.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-login.png) | ⚠️ Notes (if applicable) |
-| templates | [logout.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/logout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-logout.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/password_reset.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_done.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/password_reset_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_done.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/password_reset_from_key.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key_done.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/password_reset_from_key_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key_done.png) | ⚠️ Notes (if applicable) |
-| templates | [signup.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | ⚠️ Notes (if applicable) |
-| templates | [verification_sent.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/verification_sent.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-verification_sent.png) | ⚠️ Notes (if applicable) |
-
+| home | [index.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/templates/home/index.html) | [W3C Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmp4-ecommerce-390faaa8fcde.herokuapp.com%2F) | ![screenshot](documentation/validation/html-home-index.png) | |
+| services | [services.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/services.html) | N/A | ![screenshot](documentation/validation/html-services-services.png) | Validated by direct input - No link, Includes service-modal.html and delete-modal.html |
+| services | [service_detail.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/templates/services/service_detail.html) | [W3C Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmp4-ecommerce-390faaa8fcde.herokuapp.com%2Fservices%2F8%2F) | ![screenshot](documentation/validation/html-services-service_detail.png) | |
+| bag | [bag.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/templates/bag/bag.html) | [W3C Link](https://validator.w3.org/nu/?doc=https://mp4-ecommerce-390faaa8fcde.herokuapp.com/bag/&out=html) | ![screenshot](documentation/validation/html-bag-bag.png) | |
+| checkout | [checkout.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/templates/checkout/checkout.html) | N/A | ![screenshot](documentation/validation/html-checkout-checkout.png) | Validated by direct input - No link |
+| checkout | [checkout_success.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/templates/checkout/checkout_success.html) | N/A | ![screenshot](documentation/validation/html-checkout-checkout_success.png) | Validated by direct input - No link |
+| contact | [contact.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/templates/contact/contact.html) | [W3C Link](https://validator.w3.org/nu/?doc=https://mp4-ecommerce-390faaa8fcde.herokuapp.com/contact/&out=html) | ![screenshot](documentation/validation/html-contact-contact.png) | |
+| profiles | [profile.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/templates/profiles/profile.html) | N/A | ![screenshot](documentation/validation/html-profiles-profile.png) | Validated by direct input - No link, includes edit-contact-modal.html |
+| templates | [400.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/400.html) | N/A | ![screenshot](documentation/validation/html-templates-400.png) | Validated by direct input - No link |
+| templates | [403.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/403.html) | N/A | ![screenshot](documentation/validation/html-templates-403.png) | Validated by direct input - No link |
+| templates | [404.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/404.html) | N/A | ![screenshot](documentation/validation/html-templates-404.png) | Validated by direct input - No link |
+| templates | [500.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/errors/500.html) | N/A | ![screenshot](documentation/validation/html-templates-500.png) | Validated by direct input - No link |
+| templates | [signup.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/signup.html) | [W3C Link](https://validator.w3.org/nu/?doc=https://mp4-ecommerce-390faaa8fcde.herokuapp.com/accounts/signup/&out=html) | ![screenshot](documentation/validation/html-templates-signup.png) | |
+| templates | [login.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/login.html) | [W3C Link](https://validator.w3.org/nu/?doc=https://mp4-ecommerce-390faaa8fcde.herokuapp.com/accounts/login/&out=html) | ![screenshot](documentation/validation/html-templates-login.png) | |
+| templates | [logout.html](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/templates/account/logout.html) | N/A | ![screenshot](documentation/validation/html-templates-logout.png) | Validated by direct input - No link |
 
 ### CSS
 
