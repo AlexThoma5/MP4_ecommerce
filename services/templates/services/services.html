@@ -68,7 +68,7 @@
                             <a href="{% url 'service_detail' service.id %}"
                                 class="btn btn-sm btn-outline-custom stretched-link">Continue
                             </a>
-                            </div>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
@@ -80,5 +80,7 @@
     {% endif %}
 {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'services/js/services.js' %}" defer></script>
+    {% if request.user.is_superuser %}
+        <script src="{% static 'services/js/services.js' %}" defer></script>
+    {% endif %}
 {% endblock %}
