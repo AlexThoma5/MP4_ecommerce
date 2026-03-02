@@ -53,103 +53,41 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 ### Python
 
-⚠️ INSTRUCTIONS ⚠️
-
-The [CI Python Linter](https://pep8ci.herokuapp.com) can be used two different ways.
-
-- Copy/Paste your Python code directly into the linter.
-- As an API, using the "raw" URL appended to the linter URL.
-    - To find the "raw" URL, navigate to your file directly on the GitHub repo.
-    - On that page, GitHub provides a button on the right called "Raw" that you can click.
-    - From that new page, copy the full URL, and paste it after the CI Python Linter URL (with a `/` separator).
-
-It's recommended to validate each file using the API URL. This will give you a custom URL which you can use on your testing documentation. It makes it easier to return back to a file for validating it again in the future. Use the steps above to generate your own custom URLs for each Python file.
-
-**IMPORTANT**: `E501 line too long` errors
-
-You must strive to fix all Python lines that are too long (>80 characters). In rare cases where you cannot break the lines [*without breaking the functionality*], adding "`  # noqa`" (*NO Quality Assurance*) to the end of those lines will ignore linting validation. Do not use "`  # noqa`" all over your project just to clear down validation errors! This can still cause a project to fail, for failing to fix actual PEP8 validation errors.
-
-Sometimes variables can get too long, or excessive `if/else` conditional statements. These are acceptable instances to use the "`  # noqa`" comment.
-
-When trying to fix "line too long" errors, try to avoid using `/` to split lines. A better approach would be to use any type of opening bracket, and hit `<Enter>` just after that. Any opening bracket type will work: `(`, `[`, `{`. By using an opening bracket, Python knows where to appropriately indent the next line of code, without having to *guess* for yourself and attempt to "tab" to the correct indentation level.
-
-⚠️ --- END --- ⚠️
-
-🛑 IMPORTANT 🛑
-
-**IMPORTANT**: Django settings
-
-The Django `settings.py` file comes with 4 lines that are quite long, and will throw the `E501 line too long` error. This is default behavior, but can be fixed by adding the "`  # noqa`" comment at the end of those lines.
-
-```python
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa
-    },
-]
-```
-
-**IMPORTANT**: *migration* and *pycache* files
-
-You do not have to validate files from the `migrations/` or `pycache/` folders! Ignore these `.py` files, and validate just the files that you've created or modified.
-
-🛑 --- END --- 🛑
-
 I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
 
-| Directory | File | URL | Screenshot | Notes |
-| --- | --- | --- | --- | --- |
-| bag | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/admin.py) | ![screenshot](documentation/validation/py-bag-admin.png) | ⚠️ Notes (if applicable) |
-| bag | [contexts.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/contexts.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/contexts.py) | ![screenshot](documentation/validation/py-bag-contexts.png) | ⚠️ Notes (if applicable) |
-| bag | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/models.py) | ![screenshot](documentation/validation/py-bag-models.png) | ⚠️ Notes (if applicable) |
-| bag | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/tests.py) | ![screenshot](documentation/validation/py-bag-tests.png) | ⚠️ Notes (if applicable) |
-| bag | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/urls.py) | ![screenshot](documentation/validation/py-bag-urls.png) | ⚠️ Notes (if applicable) |
-| bag | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/views.py) | ![screenshot](documentation/validation/py-bag-views.png) | ⚠️ Notes (if applicable) |
-| checkout | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/admin.py) | ![screenshot](documentation/validation/py-checkout-admin.png) | ⚠️ Notes (if applicable) |
-| checkout | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/forms.py) | ![screenshot](documentation/validation/py-checkout-forms.png) | ⚠️ Notes (if applicable) |
-| checkout | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/models.py) | ![screenshot](documentation/validation/py-checkout-models.png) | ⚠️ Notes (if applicable) |
-| checkout | [signals.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/signals.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/signals.py) | ![screenshot](documentation/validation/py-checkout-signals.png) | ⚠️ Notes (if applicable) |
-| checkout | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/tests.py) | ![screenshot](documentation/validation/py-checkout-tests.png) | ⚠️ Notes (if applicable) |
-| checkout | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/urls.py) | ![screenshot](documentation/validation/py-checkout-urls.png) | ⚠️ Notes (if applicable) |
-| checkout | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/views.py) | ![screenshot](documentation/validation/py-checkout-views.png) | ⚠️ Notes (if applicable) |
-| checkout | [webhook_handler.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/webhook_handler.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/webhook_handler.py) | ![screenshot](documentation/validation/py-checkout-webhook_handler.png) | ⚠️ Notes (if applicable) |
-| checkout | [webhooks.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/webhooks.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/webhooks.py) | ![screenshot](documentation/validation/py-checkout-webhooks.png) | ⚠️ Notes (if applicable) |
-| contact | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/admin.py) | ![screenshot](documentation/validation/py-contact-admin.png) | ⚠️ Notes (if applicable) |
-| contact | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/forms.py) | ![screenshot](documentation/validation/py-contact-forms.png) | ⚠️ Notes (if applicable) |
-| contact | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/models.py) | ![screenshot](documentation/validation/py-contact-models.png) | ⚠️ Notes (if applicable) |
-| contact | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/tests.py) | ![screenshot](documentation/validation/py-contact-tests.png) | ⚠️ Notes (if applicable) |
-| contact | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/urls.py) | ![screenshot](documentation/validation/py-contact-urls.png) | ⚠️ Notes (if applicable) |
-| contact | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/views.py) | ![screenshot](documentation/validation/py-contact-views.png) | ⚠️ Notes (if applicable) |
-| home | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/admin.py) | ![screenshot](documentation/validation/py-home-admin.png) | ⚠️ Notes (if applicable) |
-| home | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/models.py) | ![screenshot](documentation/validation/py-home-models.png) | ⚠️ Notes (if applicable) |
-| home | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/tests.py) | ![screenshot](documentation/validation/py-home-tests.png) | ⚠️ Notes (if applicable) |
-| home | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/urls.py) | ![screenshot](documentation/validation/py-home-urls.png) | ⚠️ Notes (if applicable) |
-| home | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/views.py) | ![screenshot](documentation/validation/py-home-views.png) | ⚠️ Notes (if applicable) |
-| main | [settings.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/settings.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/settings.py) | ![screenshot](documentation/validation/py-main-settings.png) | ⚠️ Notes (if applicable) |
-| main | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/urls.py) | ![screenshot](documentation/validation/py-main-urls.png) | ⚠️ Notes (if applicable) |
-| main | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/views.py) | ![screenshot](documentation/validation/py-main-views.png) | ⚠️ Notes (if applicable) |
-|  | [manage.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/manage.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/manage.py) | ![screenshot](documentation/validation/py--manage.png) | ⚠️ Notes (if applicable) |
-| profiles | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/admin.py) | ![screenshot](documentation/validation/py-profiles-admin.png) | ⚠️ Notes (if applicable) |
-| profiles | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/forms.py) | ![screenshot](documentation/validation/py-profiles-forms.png) | ⚠️ Notes (if applicable) |
-| profiles | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/models.py) | ![screenshot](documentation/validation/py-profiles-models.png) | ⚠️ Notes (if applicable) |
-| profiles | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/tests.py) | ![screenshot](documentation/validation/py-profiles-tests.png) | ⚠️ Notes (if applicable) |
-| profiles | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/urls.py) | ![screenshot](documentation/validation/py-profiles-urls.png) | ⚠️ Notes (if applicable) |
-| profiles | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/views.py) | ![screenshot](documentation/validation/py-profiles-views.png) | ⚠️ Notes (if applicable) |
-| services | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/admin.py) | ![screenshot](documentation/validation/py-services-admin.png) | ⚠️ Notes (if applicable) |
-| services | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/forms.py) | ![screenshot](documentation/validation/py-services-forms.png) | ⚠️ Notes (if applicable) |
-| services | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/models.py) | ![screenshot](documentation/validation/py-services-models.png) | ⚠️ Notes (if applicable) |
-| services | [tests.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/tests.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/tests.py) | ![screenshot](documentation/validation/py-services-tests.png) | ⚠️ Notes (if applicable) |
-| services | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/urls.py) | ![screenshot](documentation/validation/py-services-urls.png) | ⚠️ Notes (if applicable) |
-| services | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/views.py) | ![screenshot](documentation/validation/py-services-views.png) | ⚠️ Notes (if applicable) |
+| Directory | File | URL | Screenshot |
+| --- | --- | --- | --- |
+| bag | [contexts.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/contexts.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/contexts.py) | ![screenshot](documentation/validation/py-bag-contexts.png) |
+| bag | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/urls.py) | ![screenshot](documentation/validation/py-bag-urls.png) |
+| bag | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/bag/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/bag/views.py) | ![screenshot](documentation/validation/py-bag-views.png) |
+| checkout | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/admin.py) | ![screenshot](documentation/validation/py-checkout-admin.png) |
+| checkout | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/forms.py) | ![screenshot](documentation/validation/py-checkout-forms.png) |
+| checkout | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/models.py) | ![screenshot](documentation/validation/py-checkout-models.png) |
+| checkout | [signals.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/signals.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/signals.py) | ![screenshot](documentation/validation/py-checkout-signals.png) |
+| checkout | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/urls.py) | ![screenshot](documentation/validation/py-checkout-urls.png) |
+| checkout | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/views.py) | ![screenshot](documentation/validation/py-checkout-views.png) |
+| checkout | [webhook_handler.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/webhook_handler.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/webhook_handler.py) | ![screenshot](documentation/validation/py-checkout-webhook_handler.png) |
+| checkout | [webhooks.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/checkout/webhooks.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/checkout/webhooks.py) | ![screenshot](documentation/validation/py-checkout-webhooks.png) |
+| contact | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/admin.py) | ![screenshot](documentation/validation/py-contact-admin.png) |
+| contact | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/forms.py) | ![screenshot](documentation/validation/py-contact-forms.png) |
+| contact | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/models.py) | ![screenshot](documentation/validation/py-contact-models.png) |
+| contact | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/urls.py) | ![screenshot](documentation/validation/py-contact-urls.png) |
+| contact | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/contact/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/contact/views.py) | ![screenshot](documentation/validation/py-contact-views.png) |
+| home | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/urls.py) | ![screenshot](documentation/validation/py-home-urls.png) |
+| home | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/home/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/home/views.py) | ![screenshot](documentation/validation/py-home-views.png) |
+| main | [settings.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/settings.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/settings.py) | ![screenshot](documentation/validation/py-main-settings.png) |
+| main | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/urls.py) | ![screenshot](documentation/validation/py-main-urls.png) |
+| main | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/main/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/main/views.py) | ![screenshot](documentation/validation/py-main-views.png) |
+|  | [manage.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/manage.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/manage.py) | ![screenshot](documentation/validation/py--manage.png) |
+| profiles | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/forms.py) | ![screenshot](documentation/validation/py-profiles-forms.png) |
+| profiles | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/models.py) | ![screenshot](documentation/validation/py-profiles-models.png) |
+| profiles | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/urls.py) | ![screenshot](documentation/validation/py-profiles-urls.png) |
+| profiles | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/profiles/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/profiles/views.py) | ![screenshot](documentation/validation/py-profiles-views.png) |
+| services | [admin.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/admin.py) | ![screenshot](documentation/validation/py-services-admin.png) |
+| services | [forms.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/forms.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/forms.py) | ![screenshot](documentation/validation/py-services-forms.png) |
+| services | [models.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/models.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/models.py) | ![screenshot](documentation/validation/py-services-models.png) |
+| services | [urls.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/urls.py) | ![screenshot](documentation/validation/py-services-urls.png) |
+| services | [views.py](https://github.com/AlexThoma5/MP4_ecommerce/blob/main/services/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AlexThoma5/MP4_ecommerce/main/services/views.py) | ![screenshot](documentation/validation/py-services-views.png) |
 
 
 ## Responsiveness
