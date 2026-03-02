@@ -5,8 +5,8 @@
     overflow-y: auto;
 }
 
-.card-header {
-    z-index: 5 !important;
+.card .card-header {
+    z-index: 5;
 }
 
 .img-preview {

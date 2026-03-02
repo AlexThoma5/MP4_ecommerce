@@ -81,6 +81,7 @@
     padding: 4rem 0;
     background-color: #1F2937;
     color: #FFFFFF;
+    margin-bottom: -1.5rem;
 }
 
 .cta-section h2 {
@@ -128,7 +129,7 @@
 .cta-outline-button:hover,
 .cta-outline-button:focus,
 .cta-outline-button:active {
-    background-color: #0EA5E9 !important;
+    background-color: #0EA5E9;
     box-shadow: 0 0 12px rgba(14, 164, 233, 0.4);
     transform: translateY(-2px);
 }

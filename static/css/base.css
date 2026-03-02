@@ -91,6 +91,7 @@ body {
     right: -12px;
     background-color: #007f1f;
     color: #ffffff;
+    letter-spacing: 0;
     font-size: 12px;
     font-weight: 600;
     min-width: 20px;
@@ -140,34 +141,34 @@ body {
 
 /* Custom buttons */
 
-.btn-custom {
+.btn.btn-custom {
     background-color: #652cff;
     color: white;
-    border: 1px solid #652cff !important;
+    border: 1px solid #652cff ;
     transition: all 0.3s ease;
 }
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active {
-    background-color: #4a09fc !important;
-    color: rgb(243, 243, 243) !important;
-    border: 1px solid #4a09fc !important;
+.btn.btn-custom:hover,
+.btn.btn-custom:focus,
+.btn.btn-custom:active {
+    background-color: #4a09fc;
+    color: rgb(243, 243, 243);
+    border: 1px solid #4a09fc;
 }
 
 .btn-outline-custom {
     background-color: transparent;
-    border: 2px solid #652cff;
+    border: 1px solid #652cff;
     color: #652cff;
     transition: all 0.3s ease;
 }
 
-.btn-outline-custom:hover,
-.btn-outline-custom:focus,
-.btn-outline-custom:active {
-    background-color: #652cff !important;
-    border: 1px solid #652cff !important;
-    color: rgb(255, 255, 255) !important;
+.btn.btn-outline-custom:hover,
+.btn.btn-outline-custom:focus,
+.btn.btn-outline-custom:active {
+    background-color: #652cff;
+    border: 1px solid #652cff;
+    color: rgb(255, 255, 255);
 }
 
 /* Hover Animations */
