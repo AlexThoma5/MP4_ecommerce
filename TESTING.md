@@ -192,40 +192,27 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## User Story Testing
 
-⚠️ INSTRUCTIONS ⚠️
-
-Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
-| As a guest user | I would like to browse services without needing to register | so that I can shop freely before deciding to create an account. | ![screenshot](documentation/features/feature01.png) |
-| As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and track my order history. | ![screenshot](documentation/features/feature02.png) |
-| As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with any upcoming sales or promotions. | ![screenshot](documentation/features/feature03.png) |
-| As a customer | I would like to browse various service categories (clothing, toys, jewelry, kitchen gadgets, etc.) | so that I can easily find what I'm looking for. | ![screenshot](documentation/features/feature04.png) |
-| As a customer | I would like to sort services by price (low-to-high/high-to-low) and name (alphabetical) | so that I can quickly organize items in a way that suits my shopping style. | ![screenshot](documentation/features/feature05.png) |
-| As a customer | I would like to filter services by category | so that I can narrow down the services to the types I am most interested in. | ![screenshot](documentation/features/feature06.png) |
-| As a customer | I would like to click on individual services to view more details (description, price, image, etc.) | so that I can make an informed decision about my purchase. | ![screenshot](documentation/features/feature07.png) |
-| As a customer | I would like to add items to my shopping cart using quantity increment/decrement buttons | so that I can adjust how many units of a service I want before checkout. | ![screenshot](documentation/features/feature08.png) |
-| As a customer | I would like to view and manage my shopping cart | so that I can review, add, or remove items before proceeding to checkout. | ![screenshot](documentation/features/feature09.png) |
-| As a customer | I would like to adjust the quantity of items in my cart | so that I can modify my purchase preferences without leaving the cart. | ![screenshot](documentation/features/feature10.png) |
-| As a customer | I would like to remove items from my cart | so that I can remove services I no longer wish to buy. | ![screenshot](documentation/features/feature11.png) |
-| As a customer | I would like to proceed to checkout where I see my cart items, grand total, and input my name, email, shipping address, and card details | so that I can complete my purchase. | ![screenshot](documentation/features/feature12.png) |
-| As a customer | I would like to receive a confirmation email after my purchase | so that I can have a record of my transaction and order details. | ![screenshot](documentation/features/feature13.png) |
-| As a customer | I would like to see an order confirmation page with a checkout order number after completing my purchase | so that I know my order has been successfully placed. | ![screenshot](documentation/features/feature14.png) |
-| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident my payment information is protected. | ![screenshot](documentation/features/feature15.png) |
-| As a returning customer | I would like to be able to log in and view my past orders | so that I can track my previous purchases and order history. | ![screenshot](documentation/features/feature16.png) |
-| As a returning customer | I would like the checkout process to remember my shipping address | so that future purchases are quicker and easier. | ![screenshot](documentation/features/feature17.png) |
-| As a site owner | I would like to create new services with a name, description, price, images, and category | so that I can add additional items to the store inventory. | ![screenshot](documentation/features/feature18.png) |
-| As a site owner | I would like to update service details (name, price, description, image, category) at any time | so that I can keep my service listings accurate and up to date. | ![screenshot](documentation/features/feature19.png) |
-| As a site owner | I would like to delete services that are no longer available or relevant | so that I can maintain a clean and accurate inventory. | ![screenshot](documentation/features/feature20.png) |
-| As a site owner | I would like to view all orders placed on the website | so that I can track and manage customer purchases. | ![screenshot](documentation/features/feature21.png) |
-| As a site owner | I would like to manage service categories | so that I can ensure items are correctly organized and easy for customers to find. | ![screenshot](documentation/features/feature22.png) |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. | ![screenshot](documentation/features/feature23.png) |
-
+| As a guest user | I would like to browse physiotherapy services without needing to register | so that I can explore available treatments before deciding to create an account. | ![screenshot](documentation/defensive/services.gif) |
+| As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and access my service purchase history. | ![screenshot](documentation/features/user-story-2.gif) |
+| As a customer | I would like to both in-person and virtual service options | so that I can have flexibility with my treatments. | ![screenshot](documentation/features/user-story-3.png) |
+| As a customer | I would like to click on an individual service to view more details (description, duration, price) | so that I can make an informed decision before purchasing. | ![screenshot](documentation/defensive/service-details.gif) |
+| As a customer | I would like to remove services from my cart | so that I can change my mind before completing payment. | ![screenshot](documentation/defensive/manage-cart.gif) |
+| As a customer | I would like to proceed to checkout where I can see my selected services, total cost, and enter my personal and payment details | so that I can complete my purchase securely. | ![screenshot](documentation/defensive/checkout.gif) |
+| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident that my payment information is protected. | ![screenshot](documentation/features/user-story-7.png) |
+| As a customer | I would like to receive a confirmation email after my purchase | so that I have a record of my transaction and service details. | ![screenshot](documentation/defensive/email-confirmation.png) |
+| As a customer | I would like to see an order confirmation page with an order number after completing my purchase | so that I know my transaction was successful. | ![screenshot](documentation/defensive/order-confirmation.gif) |
+| As a returning customer | I would like to log in and view my past service purchases | so that I can keep track of my treatment history. | ![screenshot](documentation/defensive/order-history.gif) |
+| As a returning customer | I would like my personal details to be remembered at checkout | so that future purchases are quicker and more convenient. | ![screenshot](documentation/features/checkout-data.gif) |
+| As a site owner | I would like to create new physiotherapy services with a name, description, price, duration, images and service type | so that I can expand the services offered by the clinic. | ![screenshot](documentation/defensive/add-service.gif) |
+| As a site owner | I would like to update service details (name, price, description, duration, image, service type) at any time | so that I can keep listings accurate and up to date. | ![screenshot](documentation/defensive/edit-service.gif) |
+| As a site owner | I would like to delete services that are no longer offered | so that I can maintain a clear and relevant service list. | ![screenshot](documentation/defensive/delete-service.gif) |
+| As a site owner | I would like to manage the clinic’s company details (e.g., address, email, opening hours, and phone number) | so that customers always have access to accurate and up-to-date information. | ![screenshot](documentation/defensive/company-details.gif) |
+| As a site owner | I would like to view all customer orders | so that I can track and manage service purchases. | ![screenshot](documentation/defensive/orders.gif) |
+| As a site owner | I would like to offer promotional codes | so that customers are more likely to purchase services. | ![screenshot](documentation/features/user-story-17.png) |
+| As a user | I would like to see a custom 404 error page if I navigate to a non-existent page | so that I clearly understand the page cannot be found and can return to the site easily. | ![screenshot](documentation/defensive/404.gif) |
+| As a user | I would like to fill out a contact form to send a message to the clinic | so that I can easily make enquiries or request further information. | ![screenshot](documentation/defensive/contact-form.gif) |
 ## Automated Testing
 
 I have conducted a series of automated tests on my application.

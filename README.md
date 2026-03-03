@@ -164,6 +164,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | As a site owner | I would like to view all customer orders | so that I can track and manage service purchases. |
 | As a site owner | I would like to offer promotional codes | so that customers are more likely to purchase services. |
 | As a user | I would like to see a custom 404 error page if I navigate to a non-existent page | so that I clearly understand the page cannot be found and can return to the site easily. |
+| As a user | I would like to fill out a contact form to send a message to the clinic | so that I can easily make enquiries or request further information. |
 
 ## Features
 
