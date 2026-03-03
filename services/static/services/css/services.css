@@ -13,3 +13,14 @@
     max-height: 150px;
     width: auto;
 }
+
+.btn.btn-outline-success {
+    background-color: #FFFFFF;
+}
+
+.btn.btn-outline-success:active,
+.btn.btn-outline-success:hover,
+.btn.btn-outline-success:focus {
+    background-color: #198754;
+    color: #FFFFFF;
+}
