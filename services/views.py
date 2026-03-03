@@ -129,7 +129,7 @@ def edit_service(request, service_id):
 
 @login_required
 def delete_service(request, service_id):
-    """ Delete a product from the store """
+    """ Delete a service from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect('home')
