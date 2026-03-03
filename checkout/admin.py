@@ -3,12 +3,25 @@ from .models import Order, OrderLineItem, Discount
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Inline admin configuration for OrderLineItem.
+
+    Displays line items within the Order admin and marks
+    'lineitem_total' as read-only.
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Order model.
+
+    Includes OrderLineItem inlines, sets read-only fields,
+    defines which fields are displayed and the ordering
+    in the admin list view.
+    """
     inlines = (OrderLineItemAdminInline,)
     readonly_fields = (
         'order_number', 'date', 'order_total',
@@ -32,6 +45,12 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(Discount)
 class DiscountAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Discount model.
+
+    Specifies list display, filters, search fields,
+    and marks 'created_on' as read-only.
+    """
     list_display = ('code', 'percentage', 'active', 'created_on')
     list_filter = ('active',)
     search_fields = ('code',)

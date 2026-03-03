@@ -7,6 +7,12 @@ from .models import Service
 
 @admin.register(Service)
 class ServiceAdmin(SummernoteModelAdmin):
+    """
+    Admin configuration for the Service model.
+
+    Defines list display fields, Summernote editor fields,
+    and default ordering for the admin interface.
+    """
     list_display = (
         'service_type',
         'name',
