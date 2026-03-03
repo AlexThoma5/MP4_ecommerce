@@ -122,12 +122,15 @@
                             <a class="nav-link {% if request.path == bag_url %}active" aria-current="page{% endif %}"
                                href="{% url 'view_bag' %}">
                                <div class="bag-icon">
-                                   <i class="fas fa-shopping-bag fa-lg"></i>
+                                   <i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i>
                                    {% if service_count %}
                                     <span class="bag-count">
                                         {{ service_count }}
                                     </span>
                                     {% endif %}
+                                    <span class="visually-hidden">
+                                        Shopping bag {% if service_count %}with {{ service_count }} items{% else %}empty{% endif %}
+                                    </span>
                                 </div>
                             </a>
                         </li>
