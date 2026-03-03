@@ -18,6 +18,13 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Update Stripe PaymentIntent metadata with bag and user info.
+
+    Receives POST data from the checkout page and caches relevant
+    information for the payment process. Returns HTTP 200 on success
+    or HTTP 400 if an error occurs.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -34,6 +41,31 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Display the checkout page and handle order submission.
+
+    Handles both GET and POST requests:
+    - GET: Prepares the checkout page, including Stripe PaymentIntent
+        creation and pre-filling the order form if the user is authenticated.
+    - POST: Validates order form, creates the Order and OrderLineItem
+        instances, applies any active discounts, and redirects to
+        the checkout success page.
+
+    **Context**
+
+    ``order_form``
+        An instance of :form:`checkout.OrderForm` for collecting user details.
+    ``stripe_public_key``
+        The Stripe public key used for the frontend Stripe integration.
+    ``client_secret``
+        The client secret of the Stripe PaymentIntent for secure
+        payment submission.
+
+    **Template:**
+
+    :template:`checkout/checkout.html`
+    """
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -138,7 +170,19 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle the checkout success page after a completed order.
+
+    Confirms the order, attaches the user's profile if authenticated,
+    optionally saves user info for future orders, and clears the session bag.
+
+    **Context**
+
+    ``order``
+        The :model:`checkout.Order` instance corresponding to ``order_number``.
+
+    **Template:**
+
+    :template:`checkout/checkout_success.html`
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)

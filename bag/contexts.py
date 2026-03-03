@@ -6,7 +6,26 @@ from checkout.models import Discount
 
 def bag_contents(request):
     """
-    Returns context data for the shopping bag containing services.
+    Generate context data for the shopping bag containing services.
+
+    Calculates totals, service count, discounts, and grand total for all
+    services stored in the user's session bag.
+
+    **Context**
+
+    ``bag_items``
+        A list of dictionaries, each containing an
+        individual service and its ID.
+    ``total``
+        Sum of all service prices before any discounts.
+    ``service_count``
+        Total number of services in the bag.
+    ``discount``
+        The active :model:`services.Discount` applied to the bag, if any.
+    ``discount_amount``
+        The monetary value of the discount applied.
+    ``grand_total``
+        Total price after applying any discounts.
     """
     bag_items = []
     total = 0

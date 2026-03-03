@@ -8,7 +8,26 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """ Display the user's profile """
+    """
+    Display and allow editing of the current user's profile.
+
+    Handles GET and POST requests:
+    - GET: Display the user's profile form pre-filled with existing data.
+    - POST: Validate and save updates to the user's profile, providing success
+    or error messages.
+
+    **Context**
+
+    ``form``
+        An instance of :form:`profiles.UserProfileForm` bound to the current
+        user's profile.
+    ``orders``
+        All orders associated with the user's profile.
+
+    **Template:**
+
+    :template:`profiles/profile.html`
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -33,6 +52,24 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+    Display a past order confirmation for a given order number.
+
+    Retrieves the specified :model:`checkout.Order` and shows
+    the checkout success page with a message indicating
+    that this is a historical confirmation.
+
+    **Context**
+
+    ``order``
+        The :model:`checkout.Order` instance corresponding to ``order_number``.
+    ``from_profile``
+        Boolean flag indicating the view was accessed from the user's profile.
+
+    **Template:**
+
+    :template:`checkout/checkout_success.html`
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
