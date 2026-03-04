@@ -325,23 +325,17 @@ source: [Mermaid](https://mermaid.live/edit#pako:eNqtVW1v2jAQ_iuRpX6jVXkJL_mGIJ1
 
 ### GitHub Projects
 
-⚠️ TIP ⚠️
-
-Consider adding screenshots of your Projects Board(s), Issues (open and closed), and Milestone tasks.
-
-⚠️ --- END ---⚠️
-
 [GitHub Projects](https://www.github.com/AlexThoma5/MP4_ecommerce/projects) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
-![screenshot](documentation/gh-projects.png)
+![screenshot](documentation/gh-projects.gif)
 
 ### GitHub Issues
 
-[GitHub Issues](https://www.github.com/AlexThoma5/MP4_ecommerce/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks, and tracked any issues/bugs.
+[GitHub Issues](https://www.github.com/AlexThoma5/MP4_ecommerce/issues) served as an Agile tool for this project. Through it, User Stories and issues/bugs tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues-search/AlexThoma5/MP4_ecommerce?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/gh-issues-open.png) |
+| [![GitHub issues](https://img.shields.io/github/issues-search/AlexThoma5/MP4_ecommerce?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | No open issues. |
 | [![GitHub closed issues](https://img.shields.io/github/issues-search/AlexThoma5/MP4_ecommerce?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-closed.png) |
 
 ### MoSCoW Prioritization
