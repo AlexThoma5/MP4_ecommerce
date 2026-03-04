@@ -115,31 +115,23 @@ While maintaining a modern, Apple-esque aesthetic, I chose fonts that emphasise 
 
 ## Wireframes
 
-⚠️ INSTRUCTIONS ⚠️
+To follow best practices, wireframes were developed for both mobile and desktop sizes.
+Due to Code Institute’s Balsamiq license expiring, I used Apple’s Freeform app for this project instead.
 
-If you've created wireframes or mock-ups, use this section to display screenshots of your wireframes. The example table below uses sample pages from the walkthrough project to give you some inspiration for your own project, so please adjust accordingly.
-
-⚠️ --- END --- ⚠️
-
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
-
-| Page | Mobile | Tablet | Desktop |
-| --- | --- | --- | --- |
-| Register | ![screenshot](documentation/wireframes/mobile-register.png) | ![screenshot](documentation/wireframes/tablet-register.png) | ![screenshot](documentation/wireframes/desktop-register.png) |
-| Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/tablet-login.png) | ![screenshot](documentation/wireframes/desktop-login.png) |
-| Profile | ![screenshot](documentation/wireframes/mobile-profile.png) | ![screenshot](documentation/wireframes/tablet-profile.png) | ![screenshot](documentation/wireframes/desktop-profile.png) |
-| Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
-| Services | ![screenshot](documentation/wireframes/mobile-services.png) | ![screenshot](documentation/wireframes/tablet-services.png) | ![screenshot](documentation/wireframes/desktop-services.png) |
-| Service Details | ![screenshot](documentation/wireframes/mobile-services-details.png) | ![screenshot](documentation/wireframes/tablet-service-details.png) | ![screenshot](documentation/wireframes/desktop-service-details.png) |
-| Bag | ![screenshot](documentation/wireframes/mobile-bag.png) | ![screenshot](documentation/wireframes/tablet-bag.png) | ![screenshot](documentation/wireframes/desktop-bag.png) |
-| Checkout | ![screenshot](documentation/wireframes/mobile-checkout.png) | ![screenshot](documentation/wireframes/tablet-checkout.png) | ![screenshot](documentation/wireframes/desktop-checkout.png) |
-| Checkout Success | ![screenshot](documentation/wireframes/mobile-checkout-success.png) | ![screenshot](documentation/wireframes/tablet-checkout-success.png) | ![screenshot](documentation/wireframes/desktop-checkout-success.png) |
-| Add service | ![screenshot](documentation/wireframes/mobile-add-service.png) | ![screenshot](documentation/wireframes/tablet-add-service.png) | ![screenshot](documentation/wireframes/desktop-add-service.png) |
-| Edit Service | ![screenshot](documentation/wireframes/mobile-edit-service.png) | ![screenshot](documentation/wireframes/tablet-edit-service.png) | ![screenshot](documentation/wireframes/desktop-edit-service.png) |
-| Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.png) | ![screenshot](documentation/wireframes/tablet-newsletter.png) | ![screenshot](documentation/wireframes/desktop-newsletter.png) |
-| Contact | ![screenshot](documentation/wireframes/mobile-contact.png) | ![screenshot](documentation/wireframes/tablet-contact.png) | ![screenshot](documentation/wireframes/desktop-contact.png) |
-| 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
+| Page | Mobile | Desktop |
+| --- | --- | --- |
+| Register | ![screenshot](documentation/wireframes/mobile-register.png) | ![screenshot](documentation/wireframes/desktop-register.png) |
+| Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/desktop-login.png) |
+| Profile | ![screenshot](documentation/wireframes/mobile-profile.png) | ![screenshot](documentation/wireframes/desktop-profile.png) |
+| Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
+| Services | ![screenshot](documentation/wireframes/mobile-services.png) | ![screenshot](documentation/wireframes/desktop-services.png) |
+| Service Details | ![screenshot](documentation/wireframes/mobile-service-detail.png) | ![screenshot](documentation/wireframes/desktop-service-detail.png) |
+| Bag | ![screenshot](documentation/wireframes/mobile-bag.png) | ![screenshot](documentation/wireframes/desktop-bag.png) |
+| Checkout | ![screenshot](documentation/wireframes/mobile-checkout.png) |![screenshot](documentation/wireframes/desktop-checkout.png) |
+| Checkout Success | ![screenshot](documentation/wireframes/mobile-checkout-success.png) | ![screenshot](documentation/wireframes/desktop-checkout-success.png) |
+| Add/Edit service modal | ![screenshot](documentation/wireframes/mobile-service-modal.png) | ![screenshot](documentation/wireframes/desktop-service-modal.png) |
+| Contact | ![screenshot](documentation/wireframes/mobile-contact.png) | ![screenshot](documentation/wireframes/desktop-contact.png) |
+| 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
 
 ## User Stories
 
@@ -149,8 +141,8 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and access my service purchase history. |
 | As a customer | I would like to both in-person and virtual service options | so that I can have flexibility with my treatments. |
 | As a customer | I would like to click on an individual service to view more details (description, duration, price) | so that I can make an informed decision before purchasing. |
-| As a customer | I would like to view and manage my shopping cart | so that I can review my selected services before proceeding to checkout. |
-| As a customer | I would like to remove services from my cart | so that I can change my mind before completing payment. |
+| As a customer | I would like to view and manage my shopping bag | so that I can review my selected services before proceeding to checkout. |
+| As a customer | I would like to remove services from my bag | so that I can change my mind before completing payment. |
 | As a customer | I would like to proceed to checkout where I can see my selected services, total cost, and enter my personal and payment details | so that I can complete my purchase securely. |
 | As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident that my payment information is protected. |
 | As a customer | I would like to receive a confirmation email after my purchase | so that I have a record of my transaction and service details. |
