@@ -152,7 +152,7 @@ Some lower scores, such as the Best Practices metric, were caused by third-party
 | Page | Mobile | Desktop |
 | --- | --- | --- |
 | Home | ![screenshot](documentation/lighthouse/mobile-home.png) | ![screenshot](documentation/lighthouse/desktop-home.png) |
-| Services | ![screenshot](documentation/lighthouse/mobile-services.png) [!IMPORTANT] CRUD Modals are included within the services page| ![screenshot](documentation/lighthouse/desktop-services.png) [!IMPORTANT] CRUD Modals are included within the services page|
+| Services | ![screenshot](documentation/lighthouse/mobile-services.png) **IMPORTANT**: CRUD Modals are included within the services page| ![screenshot](documentation/lighthouse/desktop-services.png) **IMPORTANT**: CRUD Modals are included within the services page|
 | Service Details | ![screenshot](documentation/lighthouse/mobile-service-detail.png) | ![screenshot](documentation/lighthouse/desktop-service-detail.png) |
 | Bag | ![screenshot](documentation/lighthouse/mobile-bag.png) | ![screenshot](documentation/lighthouse/desktop-bag.png) |
 | Checkout | ![screenshot](documentation/lighthouse/mobile-checkout.png) | ![screenshot](documentation/lighthouse/desktop-checkout.png) |
