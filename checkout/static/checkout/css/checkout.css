@@ -83,3 +83,11 @@
     margin: 0;
     height: 100%;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 374px) {
+    .price-text {
+        font-size: 14px;
+    }
+}
