@@ -226,15 +226,19 @@ I have conducted a series of automated tests on my application.
 
 ### Python (Unit Testing)
 
-⚠️ INSTRUCTIONS ⚠️
+A series of 17 automated tests have been conducted on the application, covering:
 
-Adjust the code below (file names, function names, etc.) to match your own project files/folders. Use these notes loosely when documenting your own Python Unit tests, and remove/adjust where applicable.
+Forms: All forms in the `checkout`, `contact`, `profiles` and `services` apps.
 
-⚠️ SAMPLE ⚠️
+Due to time constraints and the complexity of some views, this project focuses automated testing on forms, ensuring that required and optional fields are validated correctly.
 
-I have used Django's built-in unit testing framework to test the application functionality. In order to run the tests, I ran the following command in the terminal each time:
+I have used Django's built-in unit testing framework to test the application functionality. In order to run the tests, I ran the following command in the terminal:
 
-- `python3 manage.py test name-of-app`
+- `python3 manage.py test`
+
+All form validation behaves as expected. All tests ran 'OK'.
+
+![screenshot](documentation/automation/test-result.png)
 
 To create the coverage report, I would then run the following commands:
 
@@ -247,18 +251,11 @@ To see the HTML version of the reports, and find out whether some pieces of code
 
 - `coverage html`
 - `python3 -m http.server`
+- I then filtered for `forms`
 
-Below are the results from the full coverage report on my application that I've tested:
+Coverage results for the application, filtered to the forms module only:
 
 ![screenshot](documentation/automation/html-coverage.png)
-
-#### Unit Test Issues
-
-⚠️ INSTRUCTIONS ⚠️
-
-Use this section to list any known issues you ran into while writing your Python unit tests. Remember to include screenshots (where possible), and a solution to the issue (if known). This can be used for both "fixed" and "unresolved" issues. Remove this sub-section entirely if you somehow didn't run into any issues while working with your tests.
-
-⚠️ --- END --- ⚠️
 
 ## Bugs
 
