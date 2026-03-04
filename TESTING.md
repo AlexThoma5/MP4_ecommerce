@@ -198,7 +198,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and access my service purchase history. | ![screenshot](documentation/features/user-story-2.gif) |
 | As a customer | I would like to both in-person and virtual service options | so that I can have flexibility with my treatments. | ![screenshot](documentation/features/user-story-3.png) |
 | As a customer | I would like to click on an individual service to view more details (description, duration, price) | so that I can make an informed decision before purchasing. | ![screenshot](documentation/defensive/service-details.gif) |
-| As a customer | I would like to remove services from my cart | so that I can change my mind before completing payment. | ![screenshot](documentation/defensive/manage-cart.gif) |
+| As a customer | I would like to remove services from my bag | so that I can change my mind before completing payment. | ![screenshot](documentation/defensive/manage-cart.gif) |
 | As a customer | I would like to proceed to checkout where I can see my selected services, total cost, and enter my personal and payment details | so that I can complete my purchase securely. | ![screenshot](documentation/defensive/checkout.gif) |
 | As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident that my payment information is protected. | ![screenshot](documentation/features/user-story-7.png) |
 | As a customer | I would like to receive a confirmation email after my purchase | so that I have a record of my transaction and service details. | ![screenshot](documentation/defensive/email-confirmation.png) |
@@ -258,20 +258,6 @@ Use this section to list any known issues you ran into while writing your Python
 
 ## Bugs
 
-⚠️ INSTRUCTIONS ⚠️
-
-Nobody likes bugs,... except the assessors! Projects seem more suspicious if a student doesn't properly track their bugs. If you're about to submit your project without any bugs listed below, you should ask yourself why you're doing this course in the first place, if you're able to build this entire application without running into any bugs. The best thing you can do for any project is to document your bugs! Not only does it show the true stages of development, but think of it as breadcrumbs for yourself in the future, should you encounter the same/similar bug again, it acts as a gentle reminder on what you did to fix the bug.
-
-If/when you encounter bugs during the development stages of your project, you should document them here, ideally with a screenshot explaining what the issue was, and what you did to fix the bug.
-
-Alternatively, an improved way to manage bugs is to use the built-in **[Issues](https://www.github.com/AlexThoma5/MP4_ecommerce/issues)** tracker on your GitHub repository. This can be found at the top of your repository, the tab called "Issues".
-
-If using the Issues tracker for bug management, you can simplify the documentation process for testing. Issues allow you to directly paste screenshots into the issue page without having to first save the screenshot locally. You can add labels to your issues (e.g. `bug`), assign yourself as the owner, and add comments/updates as you progress with fixing the issue(s). Once you've solved the issue/bug, you should then "Close" it.
-
-When showcasing your bug tracking for assessment, you can use the following examples below.
-
-⚠️ --- END --- ⚠️
-
 ### Fixed Bugs
 
 [![GitHub issue custom search](https://img.shields.io/github/issues-search/AlexThoma5/MP4_ecommerce?query=is%3Aissue%20is%3Aclosed%20label%3Abug&label=Fixed%20Bugs&color=green)](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
@@ -284,31 +270,18 @@ All previously closed/fixed bugs can be tracked [here](https://www.github.com/Al
 
 ### Unfixed Bugs
 
-⚠️ INSTRUCTIONS ⚠️
-
-You will need to mention any unfixed bugs and why they are not fixed upon submission of your project. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. Where possible, you must fix all outstanding bugs, unless outside of your control.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here! It's better to be honest and list them, because if it's not documented and an assessor finds the issue, they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-⚠️ --- END --- ⚠️
-
 [![GitHub issue custom search](https://img.shields.io/github/issues-search/AlexThoma5/MP4_ecommerce?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
 Any remaining open issues can be tracked [here](https://www.github.com/AlexThoma5/MP4_ecommerce/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
-![screenshot](documentation/bugs/gh-issues-open.png)
+> [!IMPORTANT]  
+> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
 
 ### Known Issues
 
 | Issue | Screenshot |
 | --- | --- |
-| The project is designed to be responsive from `375px` and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Gameboy Color, etc.), as these resolutions are outside the project’s scope, as taught by Code Institute. | ![screenshot](documentation/issues/poor-responsiveness.png) |
-| When validating HTML with a semantic `<section>` element, the validator warns about lacking a header `h2-h6`. This is acceptable. | ![screenshot](documentation/issues/section-header.png) |
-| Validation errors on "signup.html" coming from the Django Allauth package. | ![screenshot](documentation/issues/allauth.png) |
-| With a known order-number, users can brute-force "checkout_success.html" and see potentially sensitive information. | ![screenshot](documentation/issues/checkout-success.png) |
+| With a known order-number, users can brute-force "checkout_success.html" and see potentially sensitive information. | ![screenshot](documentation/issues/brute-force.gif) |
+| The project is designed to be responsive from `375px` and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Gameboy Color, etc.), as these resolutions are outside the project’s scope, as taught by Code Institute. | ![screenshot](documentation/issues/poor-responsive.png) |
 | If a service is in your bag/cart, but then gets deleted from the database, it throws errors from the session storage memory. | ![screenshot](documentation/issues/session-storage.png) |
-| The `-`/`+` quantity buttons work well on "service_details.html", but not on "bag.html". | ![screenshot](documentation/issues/quantity-buttons.png) |
-
-> [!IMPORTANT]  
-> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
-
+| Occasionally, when logging into different accounts using Safari on iPhone, a CSRF token error may occur. This is due to how Safari on iOS handles cookies and cached session data. Refreshing the page resolves the issue. | N/A |
